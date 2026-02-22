@@ -2,10 +2,12 @@ name: Auto-generate setlist.json
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
     paths:
       - "songs/**"
       - "generate_setlist.mjs"
+      - ".github/workflows/generate-setlist.yml"
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -13,10 +15,15 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
 
@@ -29,8 +36,10 @@ jobs:
             echo "No changes to commit."
             exit 0
           fi
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
           git add setlist.json
           git commit -m "Auto-update setlist.json"
           git push
