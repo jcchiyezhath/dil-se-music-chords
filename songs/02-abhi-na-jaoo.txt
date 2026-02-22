@@ -9,9 +9,11 @@ abhi na jaao chhod kar
 C            F
 ke dil abhi bhara nahin
 
+------ Bit 
+
 F            C
 abhi na jaao chhod kar
-G     C       F
+Gm     C       F
 ke dil abhi bhara nahin
 
 
