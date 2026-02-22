@@ -6,5 +6,9 @@
   {
     "name": "Abhi Na Jaoo",
     "file": "songs/02-abhi-na-jaoo.txt"
+  },
+  {
+    "name": "Test Song",
+    "file": "songs/03-test-song.txt"
   }
 ]
