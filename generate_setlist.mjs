@@ -1,36 +1,43 @@
-name: Auto-generate setlist.json
+// generate_setlist.mjs
+import fs from "node:fs";
+import path from "node:path";
 
-on:
-  push:
-    branches: [ "main" ]
-    paths:
-      - "songs/**"
-      - "generate_setlist.mjs"
+const SONGS_DIR = "songs";
+const OUT_FILE = "setlist.json";
 
-permissions:
-  contents: write
+function titleFromFilename(filename) {
+  // "02-abhi-na-jaaooo.txt" -> "Abhi Na Jaaooo"
+  let base = filename.replace(/\.[^/.]+$/, ""); // remove extension
+  base = base.replace(/^\d+\-/, ""); // remove leading "01-"
+  base = base.replace(/[-_]+/g, " ").trim(); // hyphens/underscores to spaces
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+  // Title Case (simple)
+  return base
+    .split(" ")
+    .filter(Boolean)
+    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+}
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
+function main() {
+  if (!fs.existsSync(SONGS_DIR)) {
+    console.error(`Folder not found: ${SONGS_DIR}`);
+    process.exit(1);
+  }
 
-      - name: Generate setlist.json
-        run: node generate_setlist.mjs
+  const files = fs
+    .readdirSync(SONGS_DIR)
+    .filter(f => f.toLowerCase().endsWith(".txt"))
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
 
-      - name: Commit and push if changed
-        run: |
-          if git diff --quiet; then
-            echo "No changes to commit."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add setlist.json
-          git commit -m "Auto-update setlist.json"
-          git push
+  const setlist = files.map((f) => ({
+    name: titleFromFilename(f),
+    file: `${SONGS_DIR}/${f}`,
+  }));
+
+  fs.writeFileSync(OUT_FILE, JSON.stringify(setlist, null, 2) + "\n", "utf8");
+
+  console.log(`Wrote ${OUT_FILE} with ${setlist.length} songs`);
+}
+
+main();
