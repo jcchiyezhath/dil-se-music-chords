@@ -2,523 +2,348 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Dil Se Songbook</title>
   <style>
     :root{
       --bg:#ffffff;
-      --text:#111111;
-      --muted:#666666;
+      --fg:#111111;
+      --muted:#666;
       --card:#f7f7f7;
-      --border:#dddddd;
-      --accent:#1e6fff;
-      --shadow: 0 2px 10px rgba(0,0,0,.06);
-      --song-font-size: 20px;
-      --song-line-height: 1.55;
+      --border:#e2e2e2;
+      --accent:#2f6fed;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
     }
-
     body.dark{
       --bg:#0f1115;
-      --text:#f2f4f8;
-      --muted:#aab2c0;
-      --card:#161a22;
-      --border:#2a3140;
-      --accent:#6ea8ff;
-      --shadow: 0 2px 14px rgba(0,0,0,.35);
+      --fg:#f2f2f2;
+      --muted:#a7a7a7;
+      --card:#171a21;
+      --border:#2a2f3a;
+      --accent:#6aa6ff;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
     }
-
+    *{ box-sizing:border-box; }
     body{
       margin:0;
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       background:var(--bg);
-      color:var(--text);
+      color:var(--fg);
     }
-
-    header{
-      padding:18px 14px 6px;
-      text-align:center;
+    .topbar{
+      width:100%;
+      height:8px;
+      background:#0b7a78;
     }
-
-    h1{
-      margin:8px 0 10px;
-      font-size: clamp(22px, 4vw, 34px);
-      letter-spacing:.2px;
-    }
-
     .wrap{
-      max-width: 980px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 0 14px 18px;
+      padding: 22px 16px 40px;
+    }
+    h1{
+      text-align:center;
+      margin: 10px 0 18px;
+      font-size: 44px;
+      letter-spacing: .5px;
     }
 
-    .controls{
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 12px;
+    .panel{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
       box-shadow: var(--shadow);
+      padding: 14px;
+      margin: 14px auto;
     }
 
     .row{
       display:flex;
-      gap:10px;
+      gap:12px;
       flex-wrap:wrap;
       align-items:center;
       justify-content:space-between;
+      margin-top: 10px;
     }
 
-    .row + .row{ margin-top:10px; }
-
     select{
-      width: 100%;
-      padding: 12px 12px;
-      font-size: 18px;
+      width:100%;
+      padding: 14px 14px;
+      font-size: 22px;
       border-radius: 12px;
-      border: 1px solid var(--border);
+      border:2px solid var(--accent);
       background: var(--bg);
-      color: var(--text);
-      outline: none;
+      color: var(--fg);
+      outline:none;
     }
 
     .btn{
-      cursor:pointer;
+      padding:10px 14px;
+      border-radius: 12px;
       border:1px solid var(--border);
       background: var(--bg);
-      color: var(--text);
-      padding:10px 12px;
-      border-radius: 12px;
-      font-size: 14px;
-      user-select:none;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
+      color: var(--fg);
+      cursor:pointer;
+      font-size:16px;
     }
     .btn.primary{
-      border-color: rgba(0,0,0,0);
+      border-color: transparent;
       background: var(--accent);
       color: #fff;
     }
 
-    .pill{
-      font-size:12px;
-      color: var(--muted);
-      margin-top:6px;
-      text-align:center;
-    }
-
-    .sliderWrap{
+    .control{
       display:flex;
       gap:10px;
       align-items:center;
-      flex: 1 1 260px;
-      min-width: 240px;
-    }
-
-    input[type="range"]{
-      width: 100%;
+      flex-wrap:wrap;
+      width:100%;
     }
 
     .label{
-      font-size: 13px;
+      font-size: 14px;
       color: var(--muted);
-      min-width: 92px;
+      min-width: 70px;
     }
 
-    .value{
-      font-size: 13px;
+    input[type="range"]{
+      width: 220px;
+    }
+
+    .tip{
+      text-align:center;
       color: var(--muted);
-      min-width: 42px;
-      text-align:right;
+      font-size: 14px;
+      margin-top: 6px;
     }
 
-    .songCard{
-      margin-top: 14px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
+    .error{
+      text-align:center;
+      color: #d11;
+      font-size: 14px;
+      margin-top: 8px;
     }
 
-    .songHeader{
-      padding: 10px 12px;
-      border-bottom: 1px solid var(--border);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-    }
-
-    .songTitle{
-      font-weight: 700;
-      font-size: 15px;
-      color: var(--muted);
-      overflow:hidden;
-      text-overflow:ellipsis;
-      white-space:nowrap;
-    }
-
-    .songArea{
-      padding: 14px;
-    }
-
-    .songBox{
-      border: 1px solid var(--border);
+    .songbox{
       background: var(--bg);
-      border-radius: 12px;
-      padding: 14px;
+      border:1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
       overflow:auto;
       max-height: 62vh;
-      -webkit-overflow-scrolling: touch;
     }
 
-    /* chord alignment:
-       - monospace
-       - preserve spaces per line exactly
-       - preserve new lines */
     pre{
       margin:0;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size: var(--song-font-size);
-      line-height: var(--song-line-height);
-      white-space: pre; /* important: keeps spacing and line breaks */
-      color: var(--text);
+      white-space: pre;      /* keep exact line breaks + spacing */
+      line-height: 1.45;
     }
-
-    /* optional wrapping mode */
-    body.wrapLines pre{
-      white-space: pre-wrap;      /* keeps spacing but allows wrap */
+    pre.wrap{
+      white-space: pre-wrap;  /* wrap lines but still keep line breaks */
       word-break: break-word;
     }
 
-    .hint{
-      margin: 10px 0 0;
-      text-align:center;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .warn{
-      color: #c94848;
-      font-size: 13px;
-      text-align:center;
-      margin-top:10px;
-      display:none;
-    }
-
-    @media (max-width: 520px){
-      .row{ justify-content:stretch; }
-      .btn{ flex: 1 1 auto; justify-content:center; }
-      .sliderWrap{ min-width: 100%; }
+    @media (max-width: 700px){
+      h1{ font-size: 34px; }
+      select{ font-size: 18px; }
+      input[type="range"]{ width: 180px; }
     }
   </style>
 </head>
-
 <body>
-  <header>
-    <div class="wrap">
-      <h1>Dil Se Songbook</h1>
-    </div>
-  </header>
+  <div class="topbar"></div>
 
   <div class="wrap">
-    <div class="controls">
-      <div class="row">
-        <select id="songSelect">
-          <option>Loading songs...</option>
-        </select>
+    <h1>Dil Se Songbook</h1>
+
+    <div class="panel">
+      <select id="songSelect">
+        <option value="">loading setlist…</option>
+      </select>
+
+      <div class="row" style="margin-top:12px;">
+        <button class="btn" id="darkBtn">dark mode</button>
+        <button class="btn" id="wrapBtn">wrap lines</button>
+        <button class="btn primary" id="scrollBtn">auto-scroll: off</button>
       </div>
 
       <div class="row">
-        <button class="btn" id="toggleDark">dark mode</button>
-        <button class="btn" id="toggleWrap">wrap lines</button>
-        <button class="btn primary" id="toggleScroll">auto-scroll: off</button>
-      </div>
-
-      <div class="row">
-        <div class="sliderWrap">
+        <div class="control">
           <div class="label">font size</div>
-          <input id="fontSize" type="range" min="14" max="42" value="20"/>
-          <div class="value"><span id="fontSizeVal">20</span>px</div>
+          <input id="fontRange" type="range" min="14" max="34" value="20" />
+          <div id="fontVal" class="label" style="min-width:40px;">20px</div>
         </div>
 
-        <div class="sliderWrap">
+        <div class="control" style="justify-content:flex-end;">
           <div class="label">scroll speed</div>
-          <input id="scrollSpeed" type="range" min="5" max="120" value="30"/>
-          <div class="value"><span id="scrollSpeedVal">30</span></div>
+          <input id="speedRange" type="range" min="1" max="60" value="20" />
+          <div id="speedVal" class="label" style="min-width:40px;">20</div>
         </div>
       </div>
 
-      <div class="pill">tip: if a line is long, swipe sideways inside the song box (or turn on “wrap lines”).</div>
-      <div class="warn" id="warn"></div>
+      <div class="tip">tip: if a line is long, swipe sideways inside the song box (or turn on “wrap lines”).</div>
+      <div id="err" class="error"></div>
     </div>
 
-    <div class="songCard">
-      <div class="songHeader">
-        <div class="songTitle" id="currentSongTitle">—</div>
-        <div class="songTitle" id="statusText">ready</div>
+    <div class="panel">
+      <div class="songbox" id="songBox">
+        <pre id="songPre">pick a song above…</pre>
       </div>
-      <div class="songArea">
-        <div class="songBox" id="songBox">
-          <pre id="songPre">pick a song above…</pre>
-        </div>
-        <div class="hint">stage tip: set font size bigger + turn on auto-scroll.</div>
-      </div>
+      <div class="tip">stage tip: set font size bigger + turn on auto-scroll.</div>
     </div>
   </div>
 
   <script>
-    const SETLIST_URL = "./setlist.json";
+    // Fixes GitHub Pages "project site" path issues.
+    // Example:
+    //   https://username.github.io/repo-name/  -> base is /repo-name/
+    //   https://username.github.io/repo-name/index.html -> base is /repo-name/
+    const basePath = (() => {
+      const p = window.location.pathname;
+      return p.endsWith("/") ? p : p.replace(/\/[^\/]*$/, "/");
+    })();
 
-    const els = {
-      songSelect: document.getElementById("songSelect"),
-      songPre: document.getElementById("songPre"),
-      songBox: document.getElementById("songBox"),
-      currentSongTitle: document.getElementById("currentSongTitle"),
-      statusText: document.getElementById("statusText"),
-      warn: document.getElementById("warn"),
+    const url = (relative) => `${basePath}${relative.replace(/^\//, "")}`;
 
-      toggleDark: document.getElementById("toggleDark"),
-      toggleWrap: document.getElementById("toggleWrap"),
-      toggleScroll: document.getElementById("toggleScroll"),
+    const songSelect = document.getElementById("songSelect");
+    const songPre = document.getElementById("songPre");
+    const songBox = document.getElementById("songBox");
+    const err = document.getElementById("err");
 
-      fontSize: document.getElementById("fontSize"),
-      fontSizeVal: document.getElementById("fontSizeVal"),
-      scrollSpeed: document.getElementById("scrollSpeed"),
-      scrollSpeedVal: document.getElementById("scrollSpeedVal"),
-    };
+    const darkBtn = document.getElementById("darkBtn");
+    const wrapBtn = document.getElementById("wrapBtn");
+    const scrollBtn = document.getElementById("scrollBtn");
 
-    // -------------------------
-    // settings (saved)
-    // -------------------------
-    const store = {
-      get(key, fallback){
-        try{
-          const v = localStorage.getItem(key);
-          return v === null ? fallback : v;
-        }catch(e){ return fallback; }
-      },
-      set(key, value){
-        try{ localStorage.setItem(key, value); }catch(e){}
-      }
-    };
+    const fontRange = document.getElementById("fontRange");
+    const fontVal = document.getElementById("fontVal");
+    const speedRange = document.getElementById("speedRange");
+    const speedVal = document.getElementById("speedVal");
 
-    function setStatus(msg){
-      els.statusText.textContent = msg;
-    }
-    function showWarn(msg){
-      els.warn.style.display = msg ? "block" : "none";
-      els.warn.textContent = msg || "";
-    }
-
-    // -------------------------
-    // dark mode
-    // -------------------------
-    function applyDarkMode(isDark){
-      document.body.classList.toggle("dark", isDark);
-      els.toggleDark.textContent = isDark ? "light mode" : "dark mode";
-      store.set("darkMode", isDark ? "1" : "0");
-    }
-
-    // -------------------------
-    // wrap mode
-    // -------------------------
-    function applyWrapMode(wrapOn){
-      document.body.classList.toggle("wrapLines", wrapOn);
-      els.toggleWrap.textContent = wrapOn ? "wrap: on" : "wrap lines";
-      store.set("wrapLines", wrapOn ? "1" : "0");
-    }
-
-    // -------------------------
-    // font size
-    // -------------------------
-    function applyFontSize(px){
-      document.documentElement.style.setProperty("--song-font-size", px + "px");
-      els.fontSizeVal.textContent = px;
-      store.set("fontSize", String(px));
-    }
-
-    // -------------------------
-    // auto scroll
-    // -------------------------
+    let setlist = [];
+    let autoScrollOn = false;
     let scrollTimer = null;
 
-    function isScrolling(){
-      return scrollTimer !== null;
+    function setError(msg){
+      err.textContent = msg || "";
     }
 
-    function stopScroll(){
-      if(scrollTimer){
+    function setFont(px){
+      songPre.style.fontSize = px + "px";
+      fontVal.textContent = px + "px";
+    }
+
+    function setSpeed(v){
+      speedVal.textContent = String(v);
+    }
+
+    function stopAutoScroll(){
+      autoScrollOn = false;
+      scrollBtn.textContent = "auto-scroll: off";
+      if (scrollTimer) {
         clearInterval(scrollTimer);
         scrollTimer = null;
       }
-      els.toggleScroll.textContent = "auto-scroll: off";
-      els.toggleScroll.classList.remove("primary");
-      store.set("autoScroll", "0");
     }
 
-    function startScroll(){
-      stopScroll();
+    function startAutoScroll(){
+      autoScrollOn = true;
+      scrollBtn.textContent = "auto-scroll: on";
+      if (scrollTimer) clearInterval(scrollTimer);
 
-      // speed: higher number = faster
-      const speed = Number(els.scrollSpeed.value || 30);
-
-      // tick every 50ms, move few pixels per tick
-      const step = Math.max(1, Math.round(speed / 10));
       scrollTimer = setInterval(() => {
-        els.songBox.scrollTop += step;
-        const atBottom = Math.ceil(els.songBox.scrollTop + els.songBox.clientHeight) >= els.songBox.scrollHeight;
-        if(atBottom){
-          stopScroll();
+        const speed = Number(speedRange.value); // 1..60
+        songBox.scrollTop += speed * 0.5; // tune feel
+        if (songBox.scrollTop + songBox.clientHeight >= songBox.scrollHeight - 2) {
+          // reached bottom, stop
+          stopAutoScroll();
         }
-      }, 50);
-
-      els.toggleScroll.textContent = "auto-scroll: on";
-      els.toggleScroll.classList.add("primary");
-      store.set("autoScroll", "1");
-    }
-
-    function toggleScroll(){
-      if(isScrolling()) stopScroll();
-      else startScroll();
-    }
-
-    function applyScrollSpeed(val){
-      els.scrollSpeedVal.textContent = val;
-      store.set("scrollSpeed", String(val));
-      // if scrolling, restart with new speed
-      if(isScrolling()){
-        startScroll();
-      }
-    }
-
-    // -------------------------
-    // load setlist + songs
-    // -------------------------
-    async function fetchText(path){
-      const res = await fetch(path, { cache: "no-store" });
-      if(!res.ok) throw new Error(`failed to load: ${path} (${res.status})`);
-      return await res.text();
+      }, 120);
     }
 
     async function loadSetlist(){
-      setStatus("loading…");
-      showWarn("");
+      setError("");
+      songSelect.innerHTML = `<option value="">loading setlist…</option>`;
 
-      try{
-        const raw = await fetchText(SETLIST_URL);
-        const list = JSON.parse(raw);
+      try {
+        const res = await fetch(url("setlist.json"), { cache: "no-store" });
+        if (!res.ok) throw new Error(`setlist.json not found (HTTP ${res.status})`);
+        const data = await res.json();
+        if (!Array.isArray(data)) throw new Error("setlist.json is not an array");
 
-        if(!Array.isArray(list) || list.length === 0){
-          throw new Error("setlist.json is empty or not an array");
-        }
+        setlist = data;
 
-        // build dropdown
-        els.songSelect.innerHTML = "";
-        list.forEach((item, idx) => {
-          const opt = document.createElement("option");
-          opt.value = item.file;
-          opt.textContent = item.name || item.file || ("Song " + (idx+1));
-          opt.dataset.songName = item.name || opt.textContent;
-          els.songSelect.appendChild(opt);
-        });
+        songSelect.innerHTML = `<option value="">select a song…</option>` + setlist.map((s, i) => {
+          const name = (s && s.name) ? String(s.name) : `Song ${i+1}`;
+          return `<option value="${i}">${escapeHtml(name)}</option>`;
+        }).join("");
 
-        // load first song
-        await loadSong(els.songSelect.value, els.songSelect.selectedOptions[0]?.dataset.songName || "Song");
-
-        setStatus("ready");
-      }catch(err){
-        console.error(err);
-        setStatus("error");
-        showWarn("could not load setlist.json. make sure it is in the repo root and valid json.");
-        els.songSelect.innerHTML = `<option>setlist load failed</option>`;
+      } catch (e) {
+        songSelect.innerHTML = `<option value="">setlist load failed</option>`;
+        setError(`could not load setlist.json. confirm it is in repo root. details: ${e.message}`);
       }
     }
 
-    async function loadSong(filePath, displayName){
-      stopScroll();
-      setStatus("loading song…");
-      showWarn("");
+    async function loadSongByIndex(idx){
+      stopAutoScroll();
+      setError("");
 
-      try{
-        const txt = await fetchText(filePath);
-        els.songPre.textContent = txt;
-        els.currentSongTitle.textContent = displayName || filePath;
+      const item = setlist[idx];
+      if (!item || !item.file) {
+        songPre.textContent = "pick a song above…";
+        return;
+      }
 
-        // reset scroll to top
-        els.songBox.scrollTop = 0;
-
-        setStatus("ready");
-
-        // if auto-scroll was on, restart it
-        if(store.get("autoScroll", "0") === "1"){
-          startScroll();
-        }
-      }catch(err){
-        console.error(err);
-        setStatus("error");
-        els.songPre.textContent = "";
-        els.currentSongTitle.textContent = displayName || filePath;
-        showWarn(`could not load "${filePath}". check the file path in setlist.json matches the repo exactly.`);
+      try {
+        const res = await fetch(url(item.file), { cache: "no-store" });
+        if (!res.ok) throw new Error(`song file not found (HTTP ${res.status})`);
+        const text = await res.text();
+        songPre.textContent = text || "(empty file)";
+        songBox.scrollTop = 0;
+      } catch (e) {
+        songPre.textContent = "error loading song file.";
+        setError(`could not load ${item.file}. details: ${e.message}`);
       }
     }
 
-    // -------------------------
-    // event wiring
-    // -------------------------
-    els.songSelect.addEventListener("change", async () => {
-      const opt = els.songSelect.selectedOptions[0];
-      await loadSong(els.songSelect.value, opt?.dataset.songName || opt?.textContent || "Song");
-    });
+    function escapeHtml(str){
+      return str
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
 
-    els.toggleDark.addEventListener("click", () => {
-      const isDark = document.body.classList.contains("dark");
-      applyDarkMode(!isDark);
-    });
-
-    els.toggleWrap.addEventListener("click", () => {
-      const wrapOn = document.body.classList.contains("wrapLines");
-      applyWrapMode(!wrapOn);
-    });
-
-    els.toggleScroll.addEventListener("click", toggleScroll);
-
-    els.fontSize.addEventListener("input", () => {
-      applyFontSize(Number(els.fontSize.value));
-    });
-
-    els.scrollSpeed.addEventListener("input", () => {
-      applyScrollSpeed(Number(els.scrollSpeed.value));
-    });
-
-    // keyboard helpers (optional)
-    window.addEventListener("keydown", (e) => {
-      if(e.code === "Space" && (e.target === document.body || e.target === document.documentElement)){
-        e.preventDefault();
-        toggleScroll();
+    // UI events
+    songSelect.addEventListener("change", () => {
+      const v = songSelect.value;
+      if (v === "") {
+        songPre.textContent = "pick a song above…";
+        return;
       }
+      loadSongByIndex(Number(v));
     });
 
-    // -------------------------
-    // init from saved settings
-    // -------------------------
-    (function init(){
-      const dark = store.get("darkMode", "0") === "1";
-      const wrap = store.get("wrapLines", "0") === "1";
-      const fontSize = Number(store.get("fontSize", "20"));
-      const speed = Number(store.get("scrollSpeed", "30"));
+    darkBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+    });
 
-      applyDarkMode(dark);
-      applyWrapMode(wrap);
+    wrapBtn.addEventListener("click", () => {
+      songPre.classList.toggle("wrap");
+    });
 
-      els.fontSize.value = String(fontSize);
-      applyFontSize(fontSize);
+    scrollBtn.addEventListener("click", () => {
+      if (autoScrollOn) stopAutoScroll();
+      else startAutoScroll();
+    });
 
-      els.scrollSpeed.value = String(speed);
-      applyScrollSpeed(speed);
+    fontRange.addEventListener("input", () => setFont(Number(fontRange.value)));
+    speedRange.addEventListener("input", () => setSpeed(Number(speedRange.value)));
 
-      loadSetlist();
-    })();
+    // init
+    setFont(Number(fontRange.value));
+    setSpeed(Number(speedRange.value));
+    loadSetlist();
   </script>
 </body>
 </html>
