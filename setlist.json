@@ -1,4 +1,10 @@
 [
-  { "name": "Netru Illatha Maatram", "file": "songs/01-netru-illatha.txt" },
-  { "name": "Song Name", "file": "songs/02-songname.txt" }
+  {
+    "name": "Netru Illatha",
+    "file": "songs/01-netru-illatha.txt"
+  },
+  {
+    "name": "Abhi Na Jaaooo",
+    "file": "songs/02-abhi-na-jaaooo.txt"
+  }
 ]
