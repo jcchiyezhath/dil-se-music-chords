@@ -1,4 +1,4 @@
 [
-  { "name": "Test Song", "file": "01-test.txt" },
-  { "name": "Song Name", "file": "02-songname.txt" }
+  { "name": "Test Song", "file": "songs/01-test.txt" },
+  { "name": "Song Name", "file": "songs/02-songname.txt" }
 ]
