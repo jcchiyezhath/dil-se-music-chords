@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Dil Se Songbook</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 20px;
+      padding: 16px;
       background: #ffffff;
     }
 
     h1 {
       text-align: center;
-      margin-bottom: 20px;
+      margin: 10px 0 16px;
+      font-size: 22px;
     }
 
-    button {
+    .btn {
       display: block;
       width: 100%;
       padding: 14px;
@@ -27,65 +28,71 @@
       border: 1px solid #ccc;
       background: #f5f5f5;
       cursor: pointer;
-      border-radius: 6px;
+      border-radius: 8px;
     }
 
-    button:hover {
-      background: #e8e8e8;
+    .btn:active {
+      transform: scale(0.99);
     }
 
+    /* This is the important part for chord alignment */
     #songArea {
-      margin-top: 30px;
-      white-space: pre-wrap;
-      line-height: 1.7;
-      font-family: monospace;
+      margin-top: 18px;
+      padding: 14px;
+      border: 1px solid #e2e2e2;
+      border-radius: 10px;
+
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
       font-size: 16px;
+      line-height: 1.6;
+
+      white-space: pre;          /* preserves spacing EXACTLY */
+      overflow-x: auto;          /* allows sideways scroll if needed */
+      -webkit-overflow-scrolling: touch;
+
+      background: #fafafa;
     }
 
-    .section {
-      font-weight: bold;
-      margin-top: 25px;
-    }
-
-    .chord {
-      font-weight: bold;
-      color: #1a73e8;
+    .hint {
+      text-align: center;
+      color: #666;
+      font-size: 13px;
+      margin-top: 6px;
     }
   </style>
 </head>
 
 <body>
+  <h1>Dil Se Songbook</h1>
 
-<h1>Dil Se Songbook</h1>
+  <div id="songList"></div>
+  <div class="hint">Tip: if a line is long, swipe left/right inside the song area.</div>
 
-<div id="songList"></div>
+  <div id="songArea"></div>
 
-<div id="songArea"></div>
+  <script>
+    const songs = [
+      { name: "Test Song", file: "songs/01-test.txt" }
+    ];
 
-<script>
+    const songList = document.getElementById("songList");
+    const songArea = document.getElementById("songArea");
 
-const songs = [
-  { name: "Test Song", file: "songs/01-test.txt" }
-];
-
-const songList = document.getElementById("songList");
-
-songs.forEach(song => {
-  const btn = document.createElement("button");
-  btn.textContent = song.name;
-  btn.onclick = () => loadSong(song.file);
-  songList.appendChild(btn);
-});
-
-function loadSong(file) {
-  fetch(file)
-    .then(response => response.text())
-    .then(text => {
-      document.getElementById('songArea').textContent = text;
+    songs.forEach(song => {
+      const btn = document.createElement("button");
+      btn.className = "btn";
+      btn.textContent = song.name;
+      btn.onclick = () => loadSong(song.file);
+      songList.appendChild(btn);
     });
-}
 
-</script>
-
+    function loadSong(file) {
+      fetch(file)
+        .then(r => r.text())
+        .then(text => {
+          songArea.textContent = text; // keeps spacing exactly as typed
+        });
+    }
+  </script>
 </body>
 </html>
