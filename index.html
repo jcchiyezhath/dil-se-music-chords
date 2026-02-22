@@ -4,9 +4,40 @@
   <meta charset="UTF-8">
   <title>Dil Se Songbook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial; padding:20px; }
+    h1 { text-align:center; }
+    button {
+      display:block;
+      width:100%;
+      padding:15px;
+      margin:10px 0;
+      font-size:18px;
+    }
+    pre {
+      white-space:pre-wrap;
+      font-family:monospace;
+      margin-top:20px;
+    }
+  </style>
 </head>
-<body style="font-family: Arial; text-align:center; padding:40px;">
-  <h1>Dil Se Songbook</h1>
-  <p>Your site is working 🎵</p>
+<body>
+
+<h1>Dil Se Songbook</h1>
+
+<button onclick="loadSong()">Open Test Song</button>
+
+<pre id="songArea"></pre>
+
+<script>
+function loadSong() {
+  fetch('songs/01-test.txt')
+    .then(response => response.text())
+    .then(text => {
+      document.getElementById('songArea').textContent = text;
+    });
+}
+</script>
+
 </body>
 </html>
