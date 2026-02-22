@@ -1,9 +1,0 @@
-Title: Song Name
-Key: 
-Tempo: 
-
-[Intro]
-
-[Verse]
-
-[Chorus]
