@@ -1,184 +1,524 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dil Se Songbook</title>
   <style>
-    :root { color-scheme: light; }
-    body { margin: 0; font-family: Arial, sans-serif; background:#fff; color:#111; }
-    header { padding: 18px 14px 10px; text-align: center; border-bottom: 1px solid #e5e5e5; }
-    h1 { margin: 0; font-size: 34px; }
-    .tip { margin-top: 8px; color:#666; font-size: 14px; }
-
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 10px 14px 30px; }
-    .picker { display: grid; gap: 10px; margin: 14px 0 12px; }
-    select {
-      width: 100%;
-      padding: 14px 12px;
-      font-size: 18px;
-      border: 1px solid #d8d8d8;
-      border-radius: 10px;
-      background: #fff;
+    :root{
+      --bg:#ffffff;
+      --text:#111111;
+      --muted:#666666;
+      --card:#f7f7f7;
+      --border:#dddddd;
+      --accent:#1e6fff;
+      --shadow: 0 2px 10px rgba(0,0,0,.06);
+      --song-font-size: 20px;
+      --song-line-height: 1.55;
     }
 
-    .card {
-      border: 1px solid #e0e0e0;
+    body.dark{
+      --bg:#0f1115;
+      --text:#f2f4f8;
+      --muted:#aab2c0;
+      --card:#161a22;
+      --border:#2a3140;
+      --accent:#6ea8ff;
+      --shadow: 0 2px 14px rgba(0,0,0,.35);
+    }
+
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+
+    header{
+      padding:18px 14px 6px;
+      text-align:center;
+    }
+
+    h1{
+      margin:8px 0 10px;
+      font-size: clamp(22px, 4vw, 34px);
+      letter-spacing:.2px;
+    }
+
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 14px 18px;
+    }
+
+    .controls{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .row + .row{ margin-top:10px; }
+
+    select{
+      width: 100%;
+      padding: 12px 12px;
+      font-size: 18px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      outline: none;
+    }
+
+    .btn{
+      cursor:pointer;
+      border:1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      padding:10px 12px;
+      border-radius: 12px;
+      font-size: 14px;
+      user-select:none;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .btn.primary{
+      border-color: rgba(0,0,0,0);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .pill{
+      font-size:12px;
+      color: var(--muted);
+      margin-top:6px;
+      text-align:center;
+    }
+
+    .sliderWrap{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex: 1 1 260px;
+      min-width: 240px;
+    }
+
+    input[type="range"]{
+      width: 100%;
+    }
+
+    .label{
+      font-size: 13px;
+      color: var(--muted);
+      min-width: 92px;
+    }
+
+    .value{
+      font-size: 13px;
+      color: var(--muted);
+      min-width: 42px;
+      text-align:right;
+    }
+
+    .songCard{
+      margin-top: 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .songHeader{
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+
+    .songTitle{
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--muted);
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+
+    .songArea{
+      padding: 14px;
+    }
+
+    .songBox{
+      border: 1px solid var(--border);
+      background: var(--bg);
       border-radius: 12px;
       padding: 14px;
-      background: #fafafa;
-    }
-
-    .songArea {
-      border: 1px solid #e0e0e0;
-      border-radius: 12px;
-      background: #fff;
-      padding: 16px;
-      overflow-x: auto;           /* horizontal scroll if needed */
+      overflow:auto;
+      max-height: 62vh;
       -webkit-overflow-scrolling: touch;
     }
-    pre {
-      margin: 0;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-      font-size: 18px;
-      line-height: 1.55;
-      white-space: pre;           /* keep exact spacing + line breaks */
+
+    /* chord alignment:
+       - monospace
+       - preserve spaces per line exactly
+       - preserve new lines */
+    pre{
+      margin:0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: var(--song-font-size);
+      line-height: var(--song-line-height);
+      white-space: pre; /* important: keeps spacing and line breaks */
+      color: var(--text);
     }
 
-    .status {
-      margin: 12px 0;
-      padding: 10px 12px;
-      border-radius: 10px;
-      background: #fff3cd;
-      border: 1px solid #ffeeba;
-      color: #6b4f00;
-      display: none;
+    /* optional wrapping mode */
+    body.wrapLines pre{
+      white-space: pre-wrap;      /* keeps spacing but allows wrap */
+      word-break: break-word;
+    }
+
+    .hint{
+      margin: 10px 0 0;
+      text-align:center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .warn{
+      color: #c94848;
+      font-size: 13px;
+      text-align:center;
+      margin-top:10px;
+      display:none;
+    }
+
+    @media (max-width: 520px){
+      .row{ justify-content:stretch; }
+      .btn{ flex: 1 1 auto; justify-content:center; }
+      .sliderWrap{ min-width: 100%; }
     }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>Dil Se Songbook</h1>
-    <div class="tip">Tip: swipe sideways if a line is long.</div>
+    <div class="wrap">
+      <h1>Dil Se Songbook</h1>
+    </div>
   </header>
 
   <div class="wrap">
-    <div id="status" class="status"></div>
+    <div class="controls">
+      <div class="row">
+        <select id="songSelect">
+          <option>Loading songs...</option>
+        </select>
+      </div>
 
-    <div class="picker">
-      <select id="songSelect">
-        <option value="">Loading songs…</option>
-      </select>
+      <div class="row">
+        <button class="btn" id="toggleDark">dark mode</button>
+        <button class="btn" id="toggleWrap">wrap lines</button>
+        <button class="btn primary" id="toggleScroll">auto-scroll: off</button>
+      </div>
+
+      <div class="row">
+        <div class="sliderWrap">
+          <div class="label">font size</div>
+          <input id="fontSize" type="range" min="14" max="42" value="20"/>
+          <div class="value"><span id="fontSizeVal">20</span>px</div>
+        </div>
+
+        <div class="sliderWrap">
+          <div class="label">scroll speed</div>
+          <input id="scrollSpeed" type="range" min="5" max="120" value="30"/>
+          <div class="value"><span id="scrollSpeedVal">30</span></div>
+        </div>
+      </div>
+
+      <div class="pill">tip: if a line is long, swipe sideways inside the song box (or turn on “wrap lines”).</div>
+      <div class="warn" id="warn"></div>
     </div>
 
-    <div class="card">
+    <div class="songCard">
+      <div class="songHeader">
+        <div class="songTitle" id="currentSongTitle">—</div>
+        <div class="songTitle" id="statusText">ready</div>
+      </div>
       <div class="songArea">
-        <pre id="songText">Pick a song above.</pre>
+        <div class="songBox" id="songBox">
+          <pre id="songPre">pick a song above…</pre>
+        </div>
+        <div class="hint">stage tip: set font size bigger + turn on auto-scroll.</div>
       </div>
     </div>
   </div>
 
   <script>
-    const statusEl = document.getElementById('status');
-    const selectEl = document.getElementById('songSelect');
-    const songTextEl = document.getElementById('songText');
+    const SETLIST_URL = "setlist.json";
 
-    function showStatus(msg) {
-      statusEl.textContent = msg;
-      statusEl.style.display = 'block';
-    }
-    function clearStatus() {
-      statusEl.textContent = '';
-      statusEl.style.display = 'none';
-    }
+    const els = {
+      songSelect: document.getElementById("songSelect"),
+      songPre: document.getElementById("songPre"),
+      songBox: document.getElementById("songBox"),
+      currentSongTitle: document.getElementById("currentSongTitle"),
+      statusText: document.getElementById("statusText"),
+      warn: document.getElementById("warn"),
 
-    async function fetchJson(url) {
-      const res = await fetch(url, { cache: 'no-store' });
-      if (!res.ok) throw new Error(`Failed to load ${url} (${res.status})`);
-      return res.json();
-    }
+      toggleDark: document.getElementById("toggleDark"),
+      toggleWrap: document.getElementById("toggleWrap"),
+      toggleScroll: document.getElementById("toggleScroll"),
 
-    async function fetchText(url) {
-      const res = await fetch(url, { cache: 'no-store' });
-      if (!res.ok) throw new Error(`Failed to load ${url} (${res.status})`);
-      return res.text();
-    }
+      fontSize: document.getElementById("fontSize"),
+      fontSizeVal: document.getElementById("fontSizeVal"),
+      scrollSpeed: document.getElementById("scrollSpeed"),
+      scrollSpeedVal: document.getElementById("scrollSpeedVal"),
+    };
 
-    async function loadSetlist() {
-      clearStatus();
-
-      // try songs/setlist.json first, then root setlist.json
-      const candidates = [
-        new URL('songs/setlist.json', window.location.href).toString(),
-        new URL('setlist.json', window.location.href).toString(),
-      ];
-
-      let setlistUrl = null;
-      let setlist = null;
-
-      for (const u of candidates) {
-        try {
-          setlist = await fetchJson(u);
-          setlistUrl = u;
-          break;
-        } catch (e) {
-          // keep trying
-        }
+    // -------------------------
+    // settings (saved)
+    // -------------------------
+    const store = {
+      get(key, fallback){
+        try{
+          const v = localStorage.getItem(key);
+          return v === null ? fallback : v;
+        }catch(e){ return fallback; }
+      },
+      set(key, value){
+        try{ localStorage.setItem(key, value); }catch(e){}
       }
+    };
 
-      if (!setlistUrl || !Array.isArray(setlist)) {
-        showStatus(
-          `I couldn't find your setlist.json. Make sure it exists at either:
-- /songs/setlist.json
-- /setlist.json`
-        );
-        selectEl.innerHTML = `<option value="">No setlist found</option>`;
-        return;
-      }
-
-      // build dropdown
-      selectEl.innerHTML = `<option value="">Select a song…</option>`;
-      setlist.forEach((item, idx) => {
-        const opt = document.createElement('option');
-        opt.value = String(idx);
-        opt.textContent = item?.name ?? `Song ${idx + 1}`;
-        selectEl.appendChild(opt);
-      });
-
-      // when user picks, load song relative to setlist location
-      selectEl.onchange = async () => {
-        const i = Number(selectEl.value);
-        if (!Number.isFinite(i)) {
-          songTextEl.textContent = 'Pick a song above.';
-          return;
-        }
-        const item = setlist[i];
-        if (!item || !item.file) {
-          songTextEl.textContent = 'This song entry is missing "file".';
-          return;
-        }
-
-        try {
-          clearStatus();
-
-          // resolve file relative to setlist file location (fixes songs/songs mistakes)
-          const base = new URL(setlistUrl);
-          base.pathname = base.pathname.replace(/\/[^\/]*$/, '/'); // folder of setlist.json
-          const songUrl = new URL(item.file, base).toString();
-
-          songTextEl.textContent = 'Loading…';
-          const txt = await fetchText(songUrl);
-          songTextEl.textContent = txt.trim() ? txt : '(This file is empty)';
-        } catch (e) {
-          showStatus(String(e.message || e));
-          songTextEl.textContent = 'Could not load this song file.';
-        }
-      };
+    function setStatus(msg){
+      els.statusText.textContent = msg;
+    }
+    function showWarn(msg){
+      els.warn.style.display = msg ? "block" : "none";
+      els.warn.textContent = msg || "";
     }
 
-    loadSetlist().catch(err => {
-      showStatus(String(err.message || err));
+    // -------------------------
+    // dark mode
+    // -------------------------
+    function applyDarkMode(isDark){
+      document.body.classList.toggle("dark", isDark);
+      els.toggleDark.textContent = isDark ? "light mode" : "dark mode";
+      store.set("darkMode", isDark ? "1" : "0");
+    }
+
+    // -------------------------
+    // wrap mode
+    // -------------------------
+    function applyWrapMode(wrapOn){
+      document.body.classList.toggle("wrapLines", wrapOn);
+      els.toggleWrap.textContent = wrapOn ? "wrap: on" : "wrap lines";
+      store.set("wrapLines", wrapOn ? "1" : "0");
+    }
+
+    // -------------------------
+    // font size
+    // -------------------------
+    function applyFontSize(px){
+      document.documentElement.style.setProperty("--song-font-size", px + "px");
+      els.fontSizeVal.textContent = px;
+      store.set("fontSize", String(px));
+    }
+
+    // -------------------------
+    // auto scroll
+    // -------------------------
+    let scrollTimer = null;
+
+    function isScrolling(){
+      return scrollTimer !== null;
+    }
+
+    function stopScroll(){
+      if(scrollTimer){
+        clearInterval(scrollTimer);
+        scrollTimer = null;
+      }
+      els.toggleScroll.textContent = "auto-scroll: off";
+      els.toggleScroll.classList.remove("primary");
+      store.set("autoScroll", "0");
+    }
+
+    function startScroll(){
+      stopScroll();
+
+      // speed: higher number = faster
+      const speed = Number(els.scrollSpeed.value || 30);
+
+      // tick every 50ms, move few pixels per tick
+      const step = Math.max(1, Math.round(speed / 10));
+      scrollTimer = setInterval(() => {
+        els.songBox.scrollTop += step;
+        const atBottom = Math.ceil(els.songBox.scrollTop + els.songBox.clientHeight) >= els.songBox.scrollHeight;
+        if(atBottom){
+          stopScroll();
+        }
+      }, 50);
+
+      els.toggleScroll.textContent = "auto-scroll: on";
+      els.toggleScroll.classList.add("primary");
+      store.set("autoScroll", "1");
+    }
+
+    function toggleScroll(){
+      if(isScrolling()) stopScroll();
+      else startScroll();
+    }
+
+    function applyScrollSpeed(val){
+      els.scrollSpeedVal.textContent = val;
+      store.set("scrollSpeed", String(val));
+      // if scrolling, restart with new speed
+      if(isScrolling()){
+        startScroll();
+      }
+    }
+
+    // -------------------------
+    // load setlist + songs
+    // -------------------------
+    async function fetchText(path){
+      const res = await fetch(path, { cache: "no-store" });
+      if(!res.ok) throw new Error(`failed to load: ${path} (${res.status})`);
+      return await res.text();
+    }
+
+    async function loadSetlist(){
+      setStatus("loading…");
+      showWarn("");
+
+      try{
+        const raw = await fetchText(SETLIST_URL);
+        const list = JSON.parse(raw);
+
+        if(!Array.isArray(list) || list.length === 0){
+          throw new Error("setlist.json is empty or not an array");
+        }
+
+        // build dropdown
+        els.songSelect.innerHTML = "";
+        list.forEach((item, idx) => {
+          const opt = document.createElement("option");
+          opt.value = item.file;
+          opt.textContent = item.name || item.file || ("Song " + (idx+1));
+          opt.dataset.songName = item.name || opt.textContent;
+          els.songSelect.appendChild(opt);
+        });
+
+        // load first song
+        await loadSong(els.songSelect.value, els.songSelect.selectedOptions[0]?.dataset.songName || "Song");
+
+        setStatus("ready");
+      }catch(err){
+        console.error(err);
+        setStatus("error");
+        showWarn("could not load setlist.json. make sure it is in the repo root and valid json.");
+        els.songSelect.innerHTML = `<option>setlist load failed</option>`;
+      }
+    }
+
+    async function loadSong(filePath, displayName){
+      stopScroll();
+      setStatus("loading song…");
+      showWarn("");
+
+      try{
+        const txt = await fetchText(filePath);
+        els.songPre.textContent = txt;
+        els.currentSongTitle.textContent = displayName || filePath;
+
+        // reset scroll to top
+        els.songBox.scrollTop = 0;
+
+        setStatus("ready");
+
+        // if auto-scroll was on, restart it
+        if(store.get("autoScroll", "0") === "1"){
+          startScroll();
+        }
+      }catch(err){
+        console.error(err);
+        setStatus("error");
+        els.songPre.textContent = "";
+        els.currentSongTitle.textContent = displayName || filePath;
+        showWarn(`could not load "${filePath}". check the file path in setlist.json matches the repo exactly.`);
+      }
+    }
+
+    // -------------------------
+    // event wiring
+    // -------------------------
+    els.songSelect.addEventListener("change", async () => {
+      const opt = els.songSelect.selectedOptions[0];
+      await loadSong(els.songSelect.value, opt?.dataset.songName || opt?.textContent || "Song");
     });
+
+    els.toggleDark.addEventListener("click", () => {
+      const isDark = document.body.classList.contains("dark");
+      applyDarkMode(!isDark);
+    });
+
+    els.toggleWrap.addEventListener("click", () => {
+      const wrapOn = document.body.classList.contains("wrapLines");
+      applyWrapMode(!wrapOn);
+    });
+
+    els.toggleScroll.addEventListener("click", toggleScroll);
+
+    els.fontSize.addEventListener("input", () => {
+      applyFontSize(Number(els.fontSize.value));
+    });
+
+    els.scrollSpeed.addEventListener("input", () => {
+      applyScrollSpeed(Number(els.scrollSpeed.value));
+    });
+
+    // keyboard helpers (optional)
+    window.addEventListener("keydown", (e) => {
+      if(e.code === "Space" && (e.target === document.body || e.target === document.documentElement)){
+        e.preventDefault();
+        toggleScroll();
+      }
+    });
+
+    // -------------------------
+    // init from saved settings
+    // -------------------------
+    (function init(){
+      const dark = store.get("darkMode", "0") === "1";
+      const wrap = store.get("wrapLines", "0") === "1";
+      const fontSize = Number(store.get("fontSize", "20"));
+      const speed = Number(store.get("scrollSpeed", "30"));
+
+      applyDarkMode(dark);
+      applyWrapMode(wrap);
+
+      els.fontSize.value = String(fontSize);
+      applyFontSize(fontSize);
+
+      els.scrollSpeed.value = String(speed);
+      applyScrollSpeed(speed);
+
+      loadSetlist();
+    })();
   </script>
 </body>
 </html>
