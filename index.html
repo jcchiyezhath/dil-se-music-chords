@@ -25,18 +25,33 @@
 
 <h1>Dil Se Songbook</h1>
 
-<button onclick="loadSong()">Open Test Song</button>
+<div id="songList"></div>
 
 <pre id="songArea"></pre>
 
 <script>
-function loadSong() {
-  fetch('songs/01-test.txt')
+
+const songs = [
+  { name: "Test Song", file: "songs/01-test.txt" }
+];
+
+const songList = document.getElementById("songList");
+
+songs.forEach(song => {
+  const btn = document.createElement("button");
+  btn.textContent = song.name;
+  btn.onclick = () => loadSong(song.file);
+  songList.appendChild(btn);
+});
+
+function loadSong(file) {
+  fetch(file)
     .then(response => response.text())
     .then(text => {
       document.getElementById('songArea').textContent = text;
     });
 }
+
 </script>
 
 </body>
