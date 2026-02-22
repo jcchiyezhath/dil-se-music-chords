@@ -265,7 +265,7 @@
       songSelect.innerHTML = `<option value="">loading setlist…</option>`;
 
       try {
-        const res = await fetch(url("setlist.json"), { cache: "no-store" });
+        const res = await fetch(url(`setlist.json?v=${Date.now()}`), { cache: "no-store" });
         if (!res.ok) throw new Error(`setlist.json not found (HTTP ${res.status})`);
         const data = await res.json();
         if (!Array.isArray(data)) throw new Error("setlist.json is not an array");
@@ -294,7 +294,7 @@
       }
 
       try {
-        const res = await fetch(url(item.file), { cache: "no-store" });
+        const res = await fetch(url(`${item.file}?v=${Date.now()}`), { cache: "no-store" });
         if (!res.ok) throw new Error(`song file not found (HTTP ${res.status})`);
         const text = await res.text();
         songPre.textContent = text || "(empty file)";
