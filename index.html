@@ -1,106 +1,184 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Dil Se Songbook</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 16px;
-      background: #ffffff;
-    }
+    :root { color-scheme: light; }
+    body { margin: 0; font-family: Arial, sans-serif; background:#fff; color:#111; }
+    header { padding: 18px 14px 10px; text-align: center; border-bottom: 1px solid #e5e5e5; }
+    h1 { margin: 0; font-size: 34px; }
+    .tip { margin-top: 8px; color:#666; font-size: 14px; }
 
-    h1 {
-      text-align: center;
-      margin: 10px 0 16px;
-      font-size: 22px;
-    }
-
-    .btn {
-      display: block;
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 10px 14px 30px; }
+    .picker { display: grid; gap: 10px; margin: 14px 0 12px; }
+    select {
       width: 100%;
-      padding: 14px;
-      margin: 10px 0;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      background: #f5f5f5;
-      cursor: pointer;
-      border-radius: 8px;
-    }
-
-    .btn:active {
-      transform: scale(0.99);
-    }
-
-    #songArea {
-      margin-top: 18px;
-      padding: 14px;
-      border: 1px solid #e2e2e2;
+      padding: 14px 12px;
+      font-size: 18px;
+      border: 1px solid #d8d8d8;
       border-radius: 10px;
+      background: #fff;
+    }
 
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 16px;
-      line-height: 1.6;
-
-      white-space: pre;
-      overflow-x: auto;
+    .card {
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 14px;
       background: #fafafa;
     }
 
-    .hint {
-      text-align: center;
-      color: #666;
-      font-size: 13px;
-      margin-top: 6px;
+    .songArea {
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      background: #fff;
+      padding: 16px;
+      overflow-x: auto;           /* horizontal scroll if needed */
+      -webkit-overflow-scrolling: touch;
+    }
+    pre {
+      margin: 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 18px;
+      line-height: 1.55;
+      white-space: pre;           /* keep exact spacing + line breaks */
+    }
+
+    .status {
+      margin: 12px 0;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: #fff3cd;
+      border: 1px solid #ffeeba;
+      color: #6b4f00;
+      display: none;
     }
   </style>
 </head>
-
 <body>
+  <header>
+    <h1>Dil Se Songbook</h1>
+    <div class="tip">Tip: swipe sideways if a line is long.</div>
+  </header>
 
-  <h1>Dil Se Songbook</h1>
+  <div class="wrap">
+    <div id="status" class="status"></div>
 
-  <div id="songList"></div>
-  <div class="hint">Tip: swipe sideways if a line is long.</div>
+    <div class="picker">
+      <select id="songSelect">
+        <option value="">Loading songs…</option>
+      </select>
+    </div>
 
-  <div id="songArea"></div>
+    <div class="card">
+      <div class="songArea">
+        <pre id="songText">Pick a song above.</pre>
+      </div>
+    </div>
+  </div>
 
   <script>
-    const songList = document.getElementById("songList");
-    const songArea = document.getElementById("songArea");
+    const statusEl = document.getElementById('status');
+    const selectEl = document.getElementById('songSelect');
+    const songTextEl = document.getElementById('songText');
 
-    let songs = [];
-
-    fetch("songs/setlist.json")
-      .then(response => response.json())
-      .then(data => {
-        songs = data;
-        renderButtons();
-      });
-
-    function renderButtons() {
-      songList.innerHTML = "";
-
-      songs.forEach(song => {
-        const btn = document.createElement("button");
-        btn.className = "btn";
-        btn.textContent = song.name;
-        btn.onclick = () => loadSong(song.file);
-        songList.appendChild(btn);
-      });
+    function showStatus(msg) {
+      statusEl.textContent = msg;
+      statusEl.style.display = 'block';
+    }
+    function clearStatus() {
+      statusEl.textContent = '';
+      statusEl.style.display = 'none';
     }
 
-    function loadSong(file) {
-      fetch(file)
-        .then(response => response.text())
-        .then(text => {
-          songArea.textContent = text;
-        });
+    async function fetchJson(url) {
+      const res = await fetch(url, { cache: 'no-store' });
+      if (!res.ok) throw new Error(`Failed to load ${url} (${res.status})`);
+      return res.json();
     }
+
+    async function fetchText(url) {
+      const res = await fetch(url, { cache: 'no-store' });
+      if (!res.ok) throw new Error(`Failed to load ${url} (${res.status})`);
+      return res.text();
+    }
+
+    async function loadSetlist() {
+      clearStatus();
+
+      // try songs/setlist.json first, then root setlist.json
+      const candidates = [
+        new URL('songs/setlist.json', window.location.href).toString(),
+        new URL('setlist.json', window.location.href).toString(),
+      ];
+
+      let setlistUrl = null;
+      let setlist = null;
+
+      for (const u of candidates) {
+        try {
+          setlist = await fetchJson(u);
+          setlistUrl = u;
+          break;
+        } catch (e) {
+          // keep trying
+        }
+      }
+
+      if (!setlistUrl || !Array.isArray(setlist)) {
+        showStatus(
+          `I couldn't find your setlist.json. Make sure it exists at either:
+- /songs/setlist.json
+- /setlist.json`
+        );
+        selectEl.innerHTML = `<option value="">No setlist found</option>`;
+        return;
+      }
+
+      // build dropdown
+      selectEl.innerHTML = `<option value="">Select a song…</option>`;
+      setlist.forEach((item, idx) => {
+        const opt = document.createElement('option');
+        opt.value = String(idx);
+        opt.textContent = item?.name ?? `Song ${idx + 1}`;
+        selectEl.appendChild(opt);
+      });
+
+      // when user picks, load song relative to setlist location
+      selectEl.onchange = async () => {
+        const i = Number(selectEl.value);
+        if (!Number.isFinite(i)) {
+          songTextEl.textContent = 'Pick a song above.';
+          return;
+        }
+        const item = setlist[i];
+        if (!item || !item.file) {
+          songTextEl.textContent = 'This song entry is missing "file".';
+          return;
+        }
+
+        try {
+          clearStatus();
+
+          // resolve file relative to setlist file location (fixes songs/songs mistakes)
+          const base = new URL(setlistUrl);
+          base.pathname = base.pathname.replace(/\/[^\/]*$/, '/'); // folder of setlist.json
+          const songUrl = new URL(item.file, base).toString();
+
+          songTextEl.textContent = 'Loading…';
+          const txt = await fetchText(songUrl);
+          songTextEl.textContent = txt.trim() ? txt : '(This file is empty)';
+        } catch (e) {
+          showStatus(String(e.message || e));
+          songTextEl.textContent = 'Could not load this song file.';
+        }
+      };
+    }
+
+    loadSetlist().catch(err => {
+      showStatus(String(err.message || err));
+    });
   </script>
-
 </body>
 </html>
