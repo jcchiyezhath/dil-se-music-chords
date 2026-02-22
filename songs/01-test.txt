@@ -1,1 +1,18 @@
+Title: Test Song
+Key: D
+Tempo: 92
 
+[Intro]
+D     A7     D     A7
+
+[Verse]
+D              A7
+This is a sample lyric line
+G              D
+Second sample lyric line
+
+[Chorus]
+G              D
+This is the chorus line
+A7             D
+Ending line here
