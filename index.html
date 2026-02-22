@@ -35,21 +35,18 @@
       transform: scale(0.99);
     }
 
-    /* This is the important part for chord alignment */
     #songArea {
       margin-top: 18px;
       padding: 14px;
       border: 1px solid #e2e2e2;
       border-radius: 10px;
 
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       font-size: 16px;
       line-height: 1.6;
 
-      white-space: pre;          /* preserves spacing EXACTLY */
-      overflow-x: auto;          /* allows sideways scroll if needed */
-      -webkit-overflow-scrolling: touch;
-
+      white-space: pre;
+      overflow-x: auto;
       background: #fafafa;
     }
 
@@ -63,36 +60,47 @@
 </head>
 
 <body>
+
   <h1>Dil Se Songbook</h1>
 
   <div id="songList"></div>
-  <div class="hint">Tip: if a line is long, swipe left/right inside the song area.</div>
+  <div class="hint">Tip: swipe sideways if a line is long.</div>
 
   <div id="songArea"></div>
 
   <script>
-    const songs = [
-      { name: "Test Song", file: "songs/01-test.txt" }
-    ];
-
     const songList = document.getElementById("songList");
     const songArea = document.getElementById("songArea");
 
-    songs.forEach(song => {
-      const btn = document.createElement("button");
-      btn.className = "btn";
-      btn.textContent = song.name;
-      btn.onclick = () => loadSong(song.file);
-      songList.appendChild(btn);
-    });
+    let songs = [];
+
+    fetch("songs/setlist.json")
+      .then(response => response.json())
+      .then(data => {
+        songs = data;
+        renderButtons();
+      });
+
+    function renderButtons() {
+      songList.innerHTML = "";
+
+      songs.forEach(song => {
+        const btn = document.createElement("button");
+        btn.className = "btn";
+        btn.textContent = song.name;
+        btn.onclick = () => loadSong(song.file);
+        songList.appendChild(btn);
+      });
+    }
 
     function loadSong(file) {
       fetch(file)
-        .then(r => r.text())
+        .then(response => response.text())
         .then(text => {
-          songArea.textContent = text; // keeps spacing exactly as typed
+          songArea.textContent = text;
         });
     }
   </script>
+
 </body>
 </html>
