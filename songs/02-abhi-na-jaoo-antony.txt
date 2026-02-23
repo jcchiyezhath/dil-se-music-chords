@@ -4,23 +4,27 @@ Key: F
 Capo: No capo
 
 [Chorus]
-F            C
+E             B
 abhi na jaao chhod kar
-C            F
+A        B    E
 ke dil abhi bhara nahin
 
 ------ Bit 
 
-F            C
+E             B
 abhi na jaao chhod kar
-Gm     C       F
+F#            A     E
 ke dil abhi bhara nahin
 
 
 [Verse 1]
-F                 C
+E     A       E   A
 abhi abhi to aayi ho
-F
+E     A    B
+abhi abhi to....
+E     A       E   A
+abhi abhi to aayi ho
+E     A       E   A
 abhi abhi to aayi ho
 C            F
 bahar banke chhayi ho
@@ -28,7 +32,7 @@ F         C
 hawa zara mahak to le
 F          C
 nazar zara bahak to le
-A#
+Bb
 ye shaam dhal to le zara
 A#
 ye shaam dhal to le zara
@@ -53,70 +57,4 @@ C   A#   C    F
 ke dil abhi bhara nahin
 
 
-[Verse 2]
-C
-sitaren jhilmila uthe
-C
-sitaren jhilmila uthe
-C
-charag jagmaga uthe
-C
-bas ab na mujhko tokna
-C
-bas ab na mujhko tokna
-C
-na badh ke raah rokna
-F
-agar main ruk gayi abhi
-C          F
-to jaa na paungi kabhi
-C          F
-yehi kahoge tum sada
-C          F
-ke dil abhi nahin bhara
-F            C
-jo khatm ho kisi jagah
-C            F
-ye aisa sil sila nahin
-F   C   F   C
-abhi nahin abhi nahin
-G        A#   F
-nahin nahin nahin nahin
 
-
-[Chorus]
-F             C
-abhi na jaao chhod kar
-C        A#    F
-ke dil abhi bhara nahin
-
-
-[Verse 3]
-C
-adhuri aas chhodke
-C
-adhuri pyas chhodke
-C
-jo roz yun hi jaaogi to
-C
-kis tarha nibhaogi
-F        C
-ke zindigi ki raah mein
-F          C
-jawan dilon ki chah mein
-C       F
-kayi maqaam aayenge
-F
-jo humko azmayenge
-F         C
-bura na mano baat ka
-C        A#    F
-ye pyar hai gila nahin
-F            C
-haan yehi kahoge tum sada
-C        A#    F
-ke dil abhi bhara nahin
-F           C
-haan dil abhi bhara nahin
-G        A#   F
-nahin nahin nahin nahin
