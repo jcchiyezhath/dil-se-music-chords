@@ -248,6 +248,14 @@
     const transposeSelect = document.getElementById("transposeSelect");
     let currentSongText = ""; // stores the original song text
 
+    let transposeSteps = 0;
+
+function renderSong(){
+  // for now, no transpose yet (engine comes in step 2)
+  // this function is the “single place” that updates the screen.
+  songPre.textContent = currentSongText || "pick a song above…";
+}
+
     let setlist = [];
     let autoScrollOn = false;
     let scrollTimer = null;
@@ -370,11 +378,11 @@
     fontRange.addEventListener("input", () => setFont(Number(fontRange.value)));
     speedRange.addEventListener("input", () => setSpeed(Number(speedRange.value)));
 
-if (transposeSelect) {
-  transposeSelect.addEventListener("change", () => {
-    stopAutoScroll();
-  });
-}
+transposeSelect.addEventListener("change", () => {
+  stopAutoScroll();
+  transposeSteps = Number(transposeSelect.value) || 0;
+  renderSong();
+});
 
     // init
     setFont(Number(fontRange.value));
