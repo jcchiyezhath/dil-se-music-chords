@@ -175,8 +175,8 @@
   </div>
 
   <div class="control" style="justify-content:flex-end;">
-    <div class="label">Transpose</div>
-    <select id="TransposeSelect" style="width:auto; min-width:130px; padding:10px 12px; font-size:16px; border:1px solid var(--border);">
+    <div class="label">transpose</div>
+    <select id="transposeSelect" style="width:auto; min-width:130px; padding:10px 12px; font-size:16px; border:1px solid var(--border);">
       <option value="0">0</option>
       <option value="-1">-1</option>
       <option value="-2">-2</option>
@@ -326,7 +326,8 @@
         const res = await fetch(url(`${item.file}?v=${Date.now()}`), { cache: "no-store" });
         if (!res.ok) throw new Error(`song file not found (HTTP ${res.status})`);
         const text = await res.text();
-        songPre.textContent = text || "(empty file)";
+        currentSongText = text || "";
+        songPre.textContent = currentSongText;
         songBox.scrollTop = 0;
       } catch (e) {
         songPre.textContent = "error loading song file.";
@@ -368,9 +369,6 @@
 
     fontRange.addEventListener("input", () => setFont(Number(fontRange.value)));
     speedRange.addEventListener("input", () => setSpeed(Number(speedRange.value)));
-
-    fontRange.addEventListener("input", () => setFont(Number(fontRange.value)));
-speedRange.addEventListener("input", () => setSpeed(Number(speedRange.value)));
 
 transposeSelect.addEventListener("change", () => {
   stopAutoScroll();
