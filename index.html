@@ -168,18 +168,45 @@
       </div>
 
       <div class="row">
-        <div class="control">
-          <div class="label">font size</div>
-          <input id="fontRange" type="range" min="14" max="34" value="20" />
-          <div id="fontVal" class="label" style="min-width:40px;">20px</div>
-        </div>
+  <div class="control">
+    <div class="label">font size</div>
+    <input id="fontRange" type="range" min="14" max="34" value="20" />
+    <div id="fontVal" class="label" style="min-width:40px;">20px</div>
+  </div>
 
-        <div class="control" style="justify-content:flex-end;">
-          <div class="label">scroll speed</div>
-          <input id="speedRange" type="range" min="1" max="60" value="20" />
-          <div id="speedVal" class="label" style="min-width:40px;">20</div>
-        </div>
-      </div>
+  <div class="control" style="justify-content:flex-end;">
+    <div class="label">transpose</div>
+    <select id="transposeSelect" style="width:auto; min-width:130px; padding:10px 12px; font-size:16px; border:1px solid var(--border);">
+      <option value="0">0</option>
+      <option value="-1">-1</option>
+      <option value="-2">-2</option>
+      <option value="-3">-3</option>
+      <option value="-4">-4</option>
+      <option value="-5">-5</option>
+      <option value="-6">-6</option>
+      <option value="-7">-7</option>
+      <option value="-8">-8</option>
+      <option value="-9">-9</option>
+      <option value="-10">-10</option>
+      <option value="-11">-11</option>
+      <option value="1">+1</option>
+      <option value="2">+2</option>
+      <option value="3">+3</option>
+      <option value="4">+4</option>
+      <option value="5">+5</option>
+      <option value="6">+6</option>
+      <option value="7">+7</option>
+      <option value="8">+8</option>
+      <option value="9">+9</option>
+      <option value="10">+10</option>
+      <option value="11">+11</option>
+    </select>
+
+    <div class="label" style="margin-left:10px;">scroll speed</div>
+    <input id="speedRange" type="range" min="1" max="60" value="20" />
+    <div id="speedVal" class="label" style="min-width:40px;">20</div>
+  </div>
+</div>
 
       <div class="tip">tip: if a line is long, swipe sideways inside the song box (or turn on “wrap lines”).</div>
       <div id="err" class="error"></div>
