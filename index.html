@@ -403,7 +403,7 @@ function applyTransposeToText(text, semis){
         if (!res.ok) throw new Error(`song file not found (HTTP ${res.status})`);
         const text = await res.text();
         currentSongText = text || "";
-        songPre.textContent = currentSongText;
+        renderSong();
         songBox.scrollTop = 0;
       } catch (e) {
         songPre.textContent = "error loading song file.";
