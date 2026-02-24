@@ -245,6 +245,8 @@
     const fontVal = document.getElementById("fontVal");
     const speedRange = document.getElementById("speedRange");
     const speedVal = document.getElementById("speedVal");
+    const transposeSelect = document.getElementById("transposeSelect");
+    let currentSongText = ""; // stores the original song text
 
     let setlist = [];
     let autoScrollOn = false;
@@ -366,6 +368,13 @@
 
     fontRange.addEventListener("input", () => setFont(Number(fontRange.value)));
     speedRange.addEventListener("input", () => setSpeed(Number(speedRange.value)));
+
+    fontRange.addEventListener("input", () => setFont(Number(fontRange.value)));
+speedRange.addEventListener("input", () => setSpeed(Number(speedRange.value)));
+
+transposeSelect.addEventListener("change", () => {
+  stopAutoScroll();
+});
 
     // init
     setFont(Number(fontRange.value));
