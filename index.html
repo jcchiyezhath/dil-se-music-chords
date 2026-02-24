@@ -251,9 +251,77 @@
     let transposeSteps = 0;
 
 function renderSong(){
-  // for now, no transpose yet (engine comes in step 2)
-  // this function is the “single place” that updates the screen.
-  songPre.textContent = currentSongText || "pick a song above…";
+  const semis = transposeSteps || 0;
+  const out = applyTransposeToText(currentSongText || "", semis);
+  songPre.textContent = out || "pick a song above…";
+}
+ // --- transpose engine (step 2) ---
+const SHARP_NOTES = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+const FLAT_NOTES  = ["C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B"];
+
+function toIndex(note){
+  const n = note.replace("♯","#").replace("♭","b");
+  let i = SHARP_NOTES.indexOf(n);
+  if (i !== -1) return i;
+  i = FLAT_NOTES.indexOf(n);
+  return i;
+}
+
+function fromIndex(i, preferFlats){
+  const arr = preferFlats ? FLAT_NOTES : SHARP_NOTES;
+  return arr[(i + 1200) % 12];
+}
+
+function transposeChordToken(token, semis){
+  // handle slash chords like D/F#
+  const parts = token.split("/");
+  const main = transposeOne(parts[0], semis);
+  if (!main) return token;
+
+  if (parts.length === 2){
+    const bass = transposeOne(parts[1], semis);
+    return main + "/" + (bass || parts[1]);
+  }
+  return main;
+}
+
+function transposeOne(chord, semis){
+  // root: A-G + optional #/b, rest stays the same (m, maj7, sus4, 7, etc.)
+  const m = chord.match(/^([A-G])([#b]?)(.*)$/);
+  if (!m) return null;
+
+  const root = m[1] + (m[2] || "");
+  const rest = m[3] || "";
+
+  // small guard: avoid changing words that start with A-G but aren’t chords
+  // allow common chord suffix patterns
+  const chordish = rest === "" || /^[mM]|^(maj|min|sus|add|dim|aug)|^\d/.test(rest);
+  if (!chordish) return null;
+
+  const idx = toIndex(root);
+  if (idx === -1) return null;
+
+  const preferFlats = root.includes("b");
+  const newRoot = fromIndex(idx + semis, preferFlats);
+  return newRoot + rest;
+}
+
+function applyTransposeToText(text, semis){
+  if (!semis) return text;
+
+  // Replace chord tokens but keep spacing exactly (important for your formatting)
+  return text.replace(/\S+/g, (tok) => {
+    // strip common punctuation around tokens
+    const m = tok.match(/^([(\["'`{<]*)(.*?)([)\]"'`}>.,;:!?]*)$/);
+    if (!m) return tok;
+
+    const lead = m[1];
+    const core = m[2];
+    const tail = m[3];
+
+    const t = transposeChordToken(core, semis);
+    return lead + t + tail;
+  });
 }
 
     let setlist = [];
