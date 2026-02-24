@@ -61,43 +61,4 @@ idhayam sindhivitatha
         F#
 sol maname
 
-[Stanza 2]
-B            E
-Vaanam illamalae
-C#m          F#
-Boomi undagalaam
-B             E
-Varthai ilaamalae
-C#m           F#
-Bashai undagalaam
-B              C#m7
-Kaadhal ilamal ponal
-B             F#
-Vazhkai undagumaa
 
-B            E
-Vaasam illamalae
-C#m            F#
-Vanna poo pookalam
-B          E
-Vasal ilamalae
-C#m            F#
-Kaatru vandhadalam
-B             C#m7
-Nesam ilaatha vazhvil
-B            F#
-Paasam undagumaa
-
-[Hook]
-B             F#7     B
-Netru illatha maatram ennadhu
-B                 F#7  B
-Kaatru en kaadhil edho sonnathu
-           E          F#
-ithu thaan kadhal enbadha
-        B        E
-illamai pongivitatha
-        B         A
-idhayam sindhivitatha
-        F#
-sol maname
