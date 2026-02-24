@@ -13,7 +13,7 @@ ke dil abhi bhara nahin
 
 E             B
 abhi na jaao chhod kar
-F#            A     E
+F#      A     A     E
 ke dil abhi bhara nahin
 
 
@@ -22,38 +22,42 @@ E     A       E   A
 abhi abhi to aayi ho
 E     A    B
 abhi abhi to....
+
+bit.......
+
 E     A       E   A
 abhi abhi to aayi ho
-E     A       E   A
-abhi abhi to aayi ho
-C            F
+F#m    A       A   E
 bahar banke chhayi ho
-F         C
+E     A    B   F#m 
 hawa zara mahak to le
-F          C
+A       B     A     E
 nazar zara bahak to le
-Bb
+A                   C#m
 ye shaam dhal to le zara
-A#
+
+bit.......
+
+A                  C#m
 ye shaam dhal to le zara
-A#
+A
 ye dil sambhal to le zara
-F        C       F
+ E          A        B
 main thodi der jee to lun
-C              F
+A         B     F#m   E
 nashe ke ghunt pi to lun
-C
+A         B     F#m   E
 nashe ke ghunt pi to lun
-C             F
+F#m       A     B   E     
 abhi to kuchh kaha nahin
-C             F
+F#m       A     B    E         
 abhi to kuchh suna nahin
 
 
 [Chorus]
-F            C
+E             B
 abhi na jaao chhod kar
-C   A#   C    F
+F#       A    B     E
 ke dil abhi bhara nahin
 
 
