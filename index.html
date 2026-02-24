@@ -370,9 +370,11 @@
     fontRange.addEventListener("input", () => setFont(Number(fontRange.value)));
     speedRange.addEventListener("input", () => setSpeed(Number(speedRange.value)));
 
-transposeSelect.addEventListener("change", () => {
-  stopAutoScroll();
-});
+if (transposeSelect) {
+  transposeSelect.addEventListener("change", () => {
+    stopAutoScroll();
+  });
+}
 
     // init
     setFont(Number(fontRange.value));
