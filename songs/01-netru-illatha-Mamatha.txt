@@ -1,64 +1,68 @@
 Title: Netru Illatha Maatram
 Singer: Mamatha
-Key: B
-Capo: No capo
+Key: B Major
+Capo: No Capo
+
 
 [Intro]
-B  F#7  B  F#7  B  F#7  B  F#7
 
-[Hook]
-B             F#7     B
-Netru illatha maatram ennadhu
-B                 F#7  B
-Kaatru en kaadhil edho sonnathu
-           E          F#
-ithu thaan kadhal enbadha
-        B        E
-illamai pongivitatha
-        B         A
-idhayam sindhivitatha
-        F#
-sol maname
+B   F#7   B   F#7
 
-[Stanza 1]
+
+B
+Hey hey…..Hey hey….
+
+
 B                E
-Kadavul illai endren
+Kadavul Illai Endren
 C#m              F#
-thaayai kaanum varai
-B               E
-kanavu illai endren
-C#m              F#
-aasai thondrum varai
-B                C#m7
-kadhal poi endru sonnen
-B              F#
-unnai kaanum varai
+Thaayai Kaanum Varai
 
-B                  E
-Kavithai variyin suvai
+B                E
+Kanavu Illai Endren
 C#m              F#
-Artham puriyum varai
-B               E
-Gangai neerin suvai
-C#m              F#
-Kadalil serrum varai
-B                   C#m7
-Kaadhal suvai ondru thanae
+Aasai Thoandrum Varai
+
+B                C#m7
+Kaathal Poi Endru Sonnen
 B               F#
-Kaatru veesum varai
+Unnai Kaanum Varai
+
+
+B                E
+Kavithai Variyin Suvai
+C#m              F#
+Artham Puriyum Varai
+
+B                E
+Gangai Neerin Suvai
+C#m              F#
+Kadalil Serum Varai
+
+B                C#m7
+Kaathal Suvai Ondru Thaane
+B               F#
+Kaatru Veesum Varai
+
 
 [Hook]
+
 B             F#7     B
-Netru illatha maatram ennadhu
+Naetru Illaatha Maatram Ennathu
 B                 F#7  B
-Kaatru en kaadhil edho sonnathu
+Kaatru En Kaathil Aetho Sonnathu
+
            E          F#
-ithu thaan kadhal enbadha
+Ithuthaan Kaathal Enbathaa
         B        E
-illamai pongivitatha
-        B         A
-idhayam sindhivitatha
+Ilamai Pongi Vittathaa
+        B        G#m
+Ithayam Sinthi Vittathaa
         F#
-sol maname
+Sol Manamae
 
 
+B             F#7     B
+Naetru Illaatha Maatram Ennathu
+B                 F#7  B
+Kaatru En Kaathil Aetho Sonnathu
