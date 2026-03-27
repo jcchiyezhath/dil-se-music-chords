@@ -16,6 +16,10 @@
     "file": "songs/3 02 roop-tera.txt"
   },
   {
+    "name": "03 03Mere Khwabon Mein",
+    "file": "songs/03 03Mere- Khwabon-Mein.txt"
+  },
+  {
     "name": "Kilukil Parabaram Aleena",
     "file": "songs/03-kilukil-parabaram-aleena.txt"
   },
@@ -54,10 +58,6 @@
   {
     "name": "Mele Poomala Thaazhe",
     "file": "songs/Mele-Poomala-Thaazhe.txt"
-  },
-  {
-    "name": "Mere Khwabon Mein",
-    "file": "songs/Mere- Khwabon-Mein.txt"
   },
   {
     "name": "Papa Kehte Hain",
