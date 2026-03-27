@@ -3,6 +3,8 @@ MOVIE  : Qayamat Se Qayamat Tak (1988)
 ARTIST : Udit Narayan
 ------------------------------------------------------------
 
+Chords: C F G C
+
 [CHORUS]
 Papa kehte hain bada naam karega
 Beta hamara aisa kaam karega
