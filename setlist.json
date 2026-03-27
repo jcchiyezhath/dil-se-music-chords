@@ -32,6 +32,10 @@
     "file": "songs/3 06 Papa- Kehte- Hain.txt"
   },
   {
+    "name": "03 07 Hawa Hawai",
+    "file": "songs/03 07 Hawa Hawai.txt"
+  },
+  {
     "name": "Kilukil Parabaram Aleena",
     "file": "songs/03-kilukil-parabaram-aleena.txt"
   },
@@ -54,10 +58,6 @@
   {
     "name": "Chettikkulangara",
     "file": "songs/Chettikkulangara.txt"
-  },
-  {
-    "name": "Hawa Hawai",
-    "file": "songs/Hawa Hawai.txt"
   },
   {
     "name": "Hawa Hawa",
