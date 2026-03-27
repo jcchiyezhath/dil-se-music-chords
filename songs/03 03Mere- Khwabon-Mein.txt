@@ -7,6 +7,7 @@ Capo: No Capo
 
 Music…
 
+Chords: Gmin  F   
 
 [Verse]
 
@@ -16,12 +17,17 @@ Jaane Kahan Hai
 Kaisa Hai Kaun Hai Woh
 Jaane Kahan Hai
 
+F                Gmin 
 Jiske Liye Mere Hothon Pe Haan Hai
 
+Gmin                 F
 Apna Hai Ya Begaana Hai Woh
+F                 Gmin      
 Sach Hai Ya Koi Afsaana Hai Woh
 
+Dmin                 Bb 
 Dekhe Ghur Ghur Ke Yoonhi Door Door Se
+Bb      F       
 Usse Kaho Meri Neend Na Churaye
 
 
