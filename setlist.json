@@ -12,6 +12,10 @@
     "file": "songs/3 01 Chura Liya Hai.txt"
   },
   {
+    "name": "3 02 Roop Tera",
+    "file": "songs/3 02 roop-tera.txt"
+  },
+  {
     "name": "Kilukil Parabaram Aleena",
     "file": "songs/03-kilukil-parabaram-aleena.txt"
   },
@@ -62,10 +66,6 @@
   {
     "name": "Rara Venu Gopa",
     "file": "songs/rara-venu-gopa.txt"
-  },
-  {
-    "name": "Roop Tera",
-    "file": "songs/roop-tera.txt"
   },
   {
     "name": "Swami Natha Kannodu Mix",
