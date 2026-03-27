@@ -1,5 +1,9 @@
 [
   {
+    "name": "01 3Chura Liya Hai",
+    "file": "songs/01 3Chura Liya Hai.txt"
+  },
+  {
     "name": "Netru Illatha Mamatha",
     "file": "songs/01-netru-illatha-Mamatha.txt"
   },
@@ -30,10 +34,6 @@
   {
     "name": "Chettikkulangara",
     "file": "songs/Chettikkulangara.txt"
-  },
-  {
-    "name": "Chura Liya Hai",
-    "file": "songs/Chura Liya Hai.txt"
   },
   {
     "name": "Hawa Hawai",
