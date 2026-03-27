@@ -3,7 +3,10 @@ ARTIST : Hasan Jahangir
 ALBUM  : Hawa Hawa (1987)
 ------------------------------------------------------------
 
-[CHORUS]
+Chords: Amin 
+
+Bit .....[CHORUS]
+
 Hawa hawa eh hawa, khusbhoo luta day
 Kahaan khuli haan khuli, zulf bata day
 Ab uska pata day, zara mujhko bata day
