@@ -20,6 +20,10 @@
     "file": "songs/3 03Mere- Khwabon-Mein.txt"
   },
   {
+    "name": "3 04 Mele Poomala Thaazhe",
+    "file": "songs/3 04 Mele-Poomala-Thaazhe.txt"
+  },
+  {
     "name": "Kilukil Parabaram Aleena",
     "file": "songs/03-kilukil-parabaram-aleena.txt"
   },
@@ -54,10 +58,6 @@
   {
     "name": "Maha Ganapathim",
     "file": "songs/maha ganapathim.txt"
-  },
-  {
-    "name": "Mele Poomala Thaazhe",
-    "file": "songs/Mele-Poomala-Thaazhe.txt"
   },
   {
     "name": "Papa Kehte Hain",
