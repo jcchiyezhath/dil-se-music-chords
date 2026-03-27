@@ -24,6 +24,10 @@
     "file": "songs/3 04 Mele-Poomala-Thaazhe.txt"
   },
   {
+    "name": "3 05 Ye Dosti Hum Nahi",
+    "file": "songs/3 05 Ye-Dosti-Hum-Nahi.txt"
+  },
+  {
     "name": "Kilukil Parabaram Aleena",
     "file": "songs/03-kilukil-parabaram-aleena.txt"
   },
@@ -70,9 +74,5 @@
   {
     "name": "Swami Natha Kannodu Mix",
     "file": "songs/swami-natha-kannodu-mix.txt"
-  },
-  {
-    "name": "Ye Dosti Hum Nahi",
-    "file": "songs/Ye-Dosti-Hum-Nahi.txt"
   }
 ]
