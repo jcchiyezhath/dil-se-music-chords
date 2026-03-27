@@ -8,6 +8,10 @@
     "file": "songs/02-abhi-na-jaoo-antony.txt"
   },
   {
+    "name": "3 01 Chettikkulangara",
+    "file": "songs/3 01 Chettikkulangara.txt"
+  },
+  {
     "name": "3 01 Chura Liya Hai",
     "file": "songs/3 01 Chura Liya Hai.txt"
   },
@@ -54,10 +58,6 @@
   {
     "name": "Alai Payuthey",
     "file": "songs/08-alai-payuthey.txt"
-  },
-  {
-    "name": "Chettikkulangara",
-    "file": "songs/Chettikkulangara.txt"
   },
   {
     "name": "Hawa Hawa",
