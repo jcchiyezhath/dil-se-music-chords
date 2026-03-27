@@ -10,13 +10,17 @@ Music…
 
 [Verse]
 
+G    
 Raat Nashili
+D
 Mast Samaa Hai
-
+G
 Aaj Nashe Mein
+A
 Saara Jahaan Hai
-
+G
 Raat Nashili
+A
 Mast Samaa Hai
 
 Aaj Nashe Mein
@@ -30,3 +34,9 @@ Roop Tera Mastaana
 Pyaar Mera Deewaana
 
 Bhool Koi Humse Na Ho Jaaye
+
+Roop Tera Mastaana
+Pyaar Mera Deewaana
+
+Bhool Koi Humse Na Ho Jaaye
+
