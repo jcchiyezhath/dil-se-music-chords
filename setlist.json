@@ -30,7 +30,7 @@
     "file": "songs/07-mozhikalum-mounangalum-Kuriachen.txt"
   },
   {
-    "section": "Melody",
+    "section": "Carnatic",
     "name": "Alai Payuthey",
     "file": "songs/08-alai-payuthey.txt"
   },
@@ -83,17 +83,17 @@
   },
 
   {
-    "section": "Fast numbers",
+    "section": "Semi-fast",
     "name": "3 07 Hawa Hawai",
     "file": "songs/3 07 Hawa Hawai.txt"
   },
   {
-    "section": "Fast numbers",
+    "section": "Semi-fast",
     "name": "3 07 Ye Dosti Hum Nahi",
     "file": "songs/3 07 Ye-Dosti-Hum-Nahi.txt"
   },
   {
-    "section": "Fast numbers",
+    "section": "Semi-fast",
     "name": "3 08 Hawa Hawa",
     "file": "songs/3 08 Hawa- Hawa.txt"
   }
