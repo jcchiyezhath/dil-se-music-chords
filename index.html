@@ -155,6 +155,7 @@
   .tip,
   .error,
   #printBtn,
+  #printAllBtn,
   #darkBtn,
   #wrapBtn,
   #scrollBtn,
@@ -211,6 +212,27 @@
     font-size: 14pt !important;
     line-height: 1.5;
     color: #000 !important;
+  }
+
+ #printAllContainer {
+  display: block !important;
+  }
+
+#printAllContainer .print-song {
+  page-break-after: always;
+  margin-bottom: 24px;
+  }
+
+#printAllContainer .print-song:last-child {
+  page-break-after: auto;
+  }
+
+body.print-all #currentSongPanel {
+  display: none !important;
+  }
+
+body:not(.print-all) #printAllContainer {
+  display: none !important;
   }
 
   @page {
@@ -283,7 +305,7 @@
       <div id="err" class="error"></div>
     </div>
 
-<div class="panel">
+<div class="panel" id="currentSongPanel">
   <div class="songbox" id="songBox">
     <pre id="songPre">pick a song above…</pre>
   </div>
@@ -316,6 +338,7 @@
     const wrapBtn = document.getElementById("wrapBtn");
     const scrollBtn = document.getElementById("scrollBtn");
     const printBtn = document.getElementById("printBtn");
+    const printAllBtn = document.getElementById("printAllBtn");
 
     const fontRange = document.getElementById("fontRange");
     const fontVal = document.getElementById("fontVal");
@@ -487,6 +510,38 @@ function applyTransposeToText(text, semis){
       }
     }
 
+    async function buildPrintAllSongbook(){
+  printAllContainer.innerHTML = "";
+
+  for (let i = 0; i < setlist.length; i++) {
+    const item = setlist[i];
+    if (!item || !item.file) continue;
+
+    try {
+      const res = await fetch(url(`${item.file}?v=${Date.now()}`), { cache: "no-store" });
+      if (!res.ok) continue;
+
+      const text = await res.text();
+
+      const section = document.createElement("div");
+      section.className = "print-song";
+
+      const title = document.createElement("h2");
+      title.textContent = item.name || `Song ${i + 1}`;
+
+      const pre = document.createElement("pre");
+      pre.textContent = applyTransposeToText(text || "", transposeSteps || 0);
+
+      section.appendChild(title);
+      section.appendChild(pre);
+      printAllContainer.appendChild(section);
+    } catch (e) {
+      // skip errors
+    }
+  }
+}
+
+
     function escapeHtml(str){
       return str
         .replaceAll("&","&amp;")
@@ -522,6 +577,15 @@ function applyTransposeToText(text, semis){
     printBtn.addEventListener("click", () => {
       stopAutoScroll();
       window.print();
+    });
+
+   printAllBtn.addEventListener("click", async () => {
+  stopAutoScroll();
+  document.body.classList.add("print-all");
+  await buildPrintAllSongbook();
+  window.print();
+  printAllContainer.innerHTML = "";
+  document.body.classList.remove("print-all");
     });
 
     fontRange.addEventListener("input", () => setFont(Number(fontRange.value)));
