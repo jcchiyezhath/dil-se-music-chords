@@ -1,78 +1,100 @@
 [
   {
+    "section": "Melody",
     "name": "Netru Illatha Mamatha",
     "file": "songs/01-netru-illatha-Mamatha.txt"
   },
   {
+    "section": "Melody",
     "name": "Abhi Na Jaoo Antony",
     "file": "songs/02-abhi-na-jaoo-antony.txt"
   },
   {
-    "name": "3 01 Vaachalam",
-    "file": "songs/3 01 vaachalam.txt"
-  },
-  {
-    "name": "3 02 Chura Liya Hai",
-    "file": "songs/3 02 Chura Liya Hai.txt"
-  },
-  {
-    "name": "3 03 Roop Tera",
-    "file": "songs/3 03 roop-tera.txt"
-  },
-  {
-    "name": "3 04 Mere Khwabon Mein",
-    "file": "songs/3 04 Mere- Khwabon-Mein.txt"
-  },
-  {
-    "name": "3 05 Mele Poomala Thaazhe",
-    "file": "songs/3 05 Mele-Poomala-Thaazhe.txt"
-  },
-  {
-    "name": "3 06 Papa Kehte Hain",
-    "file": "songs/3 06 Papa- Kehte- Hain.txt"
-  },
-  {
-    "name": "3 07 Hawa Hawai",
-    "file": "songs/3 07 Hawa Hawai.txt"
-  },
-  {
-    "name": "3 07 Ye Dosti Hum Nahi",
-    "file": "songs/3 07 Ye-Dosti-Hum-Nahi.txt"
-  },
-  {
-    "name": "3 08 Hawa Hawa",
-    "file": "songs/3 08 Hawa- Hawa.txt"
-  },
-  {
+    "section": "Melody",
     "name": "Kilukil Parabaram Aleena",
     "file": "songs/03-kilukil-parabaram-aleena.txt"
   },
   {
+    "section": "Melody",
     "name": "Piyu Bole Rona",
     "file": "songs/04-piyu-bole-rona.txt"
   },
   {
+    "section": "Melody",
     "name": "Nilaavae Vaa Midhuna",
     "file": "songs/06-nilaavae-vaa-midhuna.txt"
   },
   {
+    "section": "Melody",
     "name": "Mozhikalum Mounangalum Kuriachen",
     "file": "songs/07-mozhikalum-mounangalum-Kuriachen.txt"
   },
   {
+    "section": "Melody",
     "name": "Alai Payuthey",
     "file": "songs/08-alai-payuthey.txt"
   },
+
   {
+    "section": "Carnatic",
     "name": "Maha Ganapathim",
     "file": "songs/maha ganapathim.txt"
   },
   {
+    "section": "Carnatic",
     "name": "Rara Venu Gopa",
     "file": "songs/rara-venu-gopa.txt"
   },
   {
+    "section": "Carnatic",
     "name": "Swami Natha Kannodu Mix",
     "file": "songs/swami-natha-kannodu-mix.txt"
+  },
+
+  {
+    "section": "Semi-fast",
+    "name": "3 01 Vaachalam",
+    "file": "songs/3 01 vaachalam.txt"
+  },
+  {
+    "section": "Semi-fast",
+    "name": "3 02 Chura Liya Hai",
+    "file": "songs/3 02 Chura Liya Hai.txt"
+  },
+  {
+    "section": "Semi-fast",
+    "name": "3 03 Roop Tera",
+    "file": "songs/3 03 roop-tera.txt"
+  },
+  {
+    "section": "Semi-fast",
+    "name": "3 04 Mere Khwabon Mein",
+    "file": "songs/3 04 Mere- Khwabon-Mein.txt"
+  },
+  {
+    "section": "Semi-fast",
+    "name": "3 05 Mele Poomala Thaazhe",
+    "file": "songs/3 05 Mele-Poomala-Thaazhe.txt"
+  },
+  {
+    "section": "Semi-fast",
+    "name": "3 06 Papa Kehte Hain",
+    "file": "songs/3 06 Papa- Kehte- Hain.txt"
+  },
+
+  {
+    "section": "Fast numbers",
+    "name": "3 07 Hawa Hawai",
+    "file": "songs/3 07 Hawa Hawai.txt"
+  },
+  {
+    "section": "Fast numbers",
+    "name": "3 07 Ye Dosti Hum Nahi",
+    "file": "songs/3 07 Ye-Dosti-Hum-Nahi.txt"
+  },
+  {
+    "section": "Fast numbers",
+    "name": "3 08 Hawa Hawa",
+    "file": "songs/3 08 Hawa- Hawa.txt"
   }
 ]
