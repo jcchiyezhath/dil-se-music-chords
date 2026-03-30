@@ -482,10 +482,26 @@ function applyTransposeToText(text, semis){
 
         setlist = data;
 
-        songSelect.innerHTML = `<option value="">select a song…</option>` + setlist.map((s, i) => {
-          const name = (s && s.name) ? String(s.name) : `Song ${i+1}`;
-          return `<option value="${i}">${escapeHtml(name)}</option>`;
-        }).join("");
+const grouped = {};
+
+setlist.forEach((s, i) => {
+  const section = (s && s.section) ? String(s.section) : "Other";
+  if (!grouped[section]) grouped[section] = [];
+  grouped[section].push({ song: s, index: i });
+});
+
+let html = `<option value="">select a song…</option>`;
+
+Object.keys(grouped).forEach((section) => {
+  html += `<optgroup label="${escapeHtml(section)}">`;
+  grouped[section].forEach(({ song, index }) => {
+    const name = (song && song.name) ? String(song.name) : `Song ${index + 1}`;
+    html += `<option value="${index}">${escapeHtml(name)}</option>`;
+  });
+  html += `</optgroup>`;
+});
+
+songSelect.innerHTML = html;
 
       } catch (e) {
         songSelect.innerHTML = `<option value="">setlist load failed</option>`;
