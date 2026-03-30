@@ -262,6 +262,8 @@ body:not(.print-all) #printAllContainer {
         <button class="btn" id="darkBtn">dark mode</button>
         <button class="btn" id="wrapBtn">wrap lines</button>
         <button class="btn primary" id="scrollBtn">auto-scroll: off</button>
+        <button class="btn" id="prevBtn">previous</button>
+        <button class="btn" id="nextBtn">next</button>
         <button class="btn" id="printBtn">print current</button>
         <button class="btn" id="printAllBtn">print all</button>
       </div>
@@ -343,6 +345,8 @@ body:not(.print-all) #printAllContainer {
     const darkBtn = document.getElementById("darkBtn");
     const wrapBtn = document.getElementById("wrapBtn");
     const scrollBtn = document.getElementById("scrollBtn");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
     const printBtn = document.getElementById("printBtn");
     const printAllBtn = document.getElementById("printAllBtn");
 
@@ -532,6 +536,14 @@ songSelect.innerHTML = html;
       }
     }
 
+    function goToSong(index){
+  if (index < 0) index = 0;
+  if (index >= setlist.length) index = setlist.length - 1;
+
+  songSelect.value = String(index);
+  loadSongByIndex(index);
+}
+
     async function buildPrintAllSongbook(){
   printAllContainer.innerHTML = "";
 
@@ -594,6 +606,18 @@ songSelect.innerHTML = html;
     scrollBtn.addEventListener("click", () => {
       if (autoScrollOn) stopAutoScroll();
       else startAutoScroll();
+    });
+
+    prevBtn.addEventListener("click", () => {
+  if (songSelect.value === "") return;
+  const current = Number(songSelect.value);
+  goToSong(current - 1);
+    });
+
+    nextBtn.addEventListener("click", () => {
+  if (songSelect.value === "") return;
+  const current = Number(songSelect.value);
+  goToSong(current + 1);
     });
 
     printBtn.addEventListener("click", () => {
