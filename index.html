@@ -148,6 +148,75 @@
       select{ font-size: 18px; }
       input[type="range"]{ width: 180px; }
     }
+
+@media print {
+  .topbar,
+  .panel:first-of-type,
+  .tip,
+  .error,
+  #printBtn,
+  #darkBtn,
+  #wrapBtn,
+  #scrollBtn,
+  #fontRange,
+  #speedRange,
+  #transposeSelect,
+  #songSelect,
+  .label,
+  .row,
+  .control {
+    display: none !important;
+  }
+
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  .wrap {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin: 0 0 16px;
+    text-align: center;
+    color: #000 !important;
+  }
+
+  .panel {
+    background: #fff !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .songbox {
+    max-height: none !important;
+    overflow: visible !important;
+    border: none !important;
+    padding: 0 !important;
+    background: #fff !important;
+  }
+
+  pre,
+  pre.wrap {
+    white-space: pre-wrap !important;
+    word-break: break-word;
+    font-size: 14pt !important;
+    line-height: 1.5;
+    color: #000 !important;
+  }
+
+  @page {
+    margin: 0.6in;
+  }
+}
   </style>
 </head>
 <body>
@@ -241,6 +310,7 @@
     const darkBtn = document.getElementById("darkBtn");
     const wrapBtn = document.getElementById("wrapBtn");
     const scrollBtn = document.getElementById("scrollBtn");
+    const printBtn = document.getElementById("printBtn");
 
     const fontRange = document.getElementById("fontRange");
     const fontVal = document.getElementById("fontVal");
@@ -442,6 +512,11 @@ function applyTransposeToText(text, semis){
     scrollBtn.addEventListener("click", () => {
       if (autoScrollOn) stopAutoScroll();
       else startAutoScroll();
+    });
+
+    printBtn.addEventListener("click", () => {
+      stopAutoScroll();
+      window.print();
     });
 
     fontRange.addEventListener("input", () => setFont(Number(fontRange.value)));
