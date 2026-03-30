@@ -231,10 +231,11 @@
       </select>
 
       <div class="row" style="margin-top:12px;">
-          <button class="btn" id="darkBtn">dark mode</button>
-          <button class="btn" id="wrapBtn">wrap lines</button>
-          <button class="btn primary" id="scrollBtn">auto-scroll: off</button>
-          <button class="btn" id="printBtn">print</button>
+        <button class="btn" id="darkBtn">dark mode</button>
+        <button class="btn" id="wrapBtn">wrap lines</button>
+        <button class="btn primary" id="scrollBtn">auto-scroll: off</button>
+        <button class="btn" id="printBtn">print current</button>
+        <button class="btn" id="printAllBtn">print all</button>
       </div>
 
       <div class="row">
@@ -282,13 +283,16 @@
       <div id="err" class="error"></div>
     </div>
 
-    <div class="panel">
-      <div class="songbox" id="songBox">
-        <pre id="songPre">pick a song above…</pre>
-      </div>
-      <div class="tip">stage tip: set font size bigger + turn on auto-scroll.</div>
-    </div>
+<div class="panel">
+  <div class="songbox" id="songBox">
+    <pre id="songPre">pick a song above…</pre>
   </div>
+  <div class="tip">stage tip: set font size bigger + turn on auto-scroll.</div>
+</div>
+
+<div id="printAllContainer" style="display:none;"></div>
+
+    </div>
 
   <script>
     // Fixes GitHub Pages "project site" path issues.
@@ -305,6 +309,7 @@
     const songSelect = document.getElementById("songSelect");
     const songPre = document.getElementById("songPre");
     const songBox = document.getElementById("songBox");
+    const printAllContainer = document.getElementById("printAllContainer");
     const err = document.getElementById("err");
 
     const darkBtn = document.getElementById("darkBtn");
