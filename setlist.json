@@ -1,7 +1,7 @@
 [
   {
-    "name": "Lag Ja Gale",
-    "file": "songs/lag-ja-gale.txt",
+    "name": "01 Lag Ja Gale",
+    "file": "songs/01-lag-ja-gale.txt",
     "section": "Melody"
   },
   {
@@ -60,8 +60,8 @@
     "section": "Melody"
   },
   {
-    "name": "Abi Na Jao",
-    "file": "songs/Abi-na-jao.txt",
+    "name": "02 Abi Na Jao",
+    "file": "songs/02-Abi-na-jao.txt",
     "section": "Melody"
   },
   {
