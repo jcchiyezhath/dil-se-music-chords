@@ -64,23 +64,5 @@
     "order": 11,
     "name": "Hawa Hawai",
     "file": "songs/3 07 Hawa Hawai.txt"
-  },
-  {
-    "section": "Section 1",
-    "order": 12,
-    "name": "Mere Khwabon Mein",
-    "file": "songs/3 04 Mere- Khwabon-Mein.txt"
-  },
-  {
-    "section": "Section 1",
-    "order": 13,
-    "name": "3 07 Ye Dosti Hum Nahi",
-    "file": "songs/3 07 Ye-Dosti-Hum-Nahi.txt"
-  },
-  {
-    "section": "Section 1",
-    "order": 14,
-    "name": "3 08 Hawa Hawa",
-    "file": "songs/3 08 Hawa- Hawa.txt"
   }
 ]
