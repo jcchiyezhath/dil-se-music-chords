@@ -1,86 +1,65 @@
-Key: D Major
-Time feel: 3/4 (soft groove)
+Title: Piya Bole
+Key: E major
 
-[Intro]
-D G Bm A
-D G A D
 
-[Verse 1]
-D
-La la la… hey hey hey…
-G
-Uhm hmm hmm… you are mine
-Bm
-Uhm hmm hmm… la la la…
-A
-Hey hey hey… say you’re mine
 
-[Verse 2]
-D
-Dil ki jo baatein hain
-G
-Baatein jo dil ki hain
-Bm
-Dil hi mein rakhna piya
-A
+E           A
+La la la...Hey hey hey...
+        E            A
+Hmm hmm hmm...You are mine.
+        E          A
+Hmm hmm hmm...La la la...
+        E                A
+Hey hey hey...Say you are mine...
 
-D
-Lab to na kholo main
-G
-Kholo na lab to par
-Bm
-Aakhon se sab keh diya
-A
 
-[Chorus]
-G
-Piyu bole piya bole
-D
-Kya yeh bole jaanu na
-Bm
-Jiya dole hole hole
-A
-Kyon yeh dole jaanu na
+A        E            A         E
+Dil ki jo baatein hain, baatein jo dil ki hain,
 
-G
-Piyu bole piya bole
-D
-Kya yeh bole jaanu na
-Bm
-Jiya dole hole hole
-A
-Kyon yeh dole jaanu na
+A          E       A
+Dil hi mein rakhna piya.
+A        E            A         E
+Lab to na kholoon main, kholoon na lab to par,
+A        E      A
+Aakhon se sab keh diya.
 
-[Verse 3]
-D
-Ek nadi se maine poochha
-G
-Ithla ke chali kahan
-Bm
-Door tere peeh ka ghar hai
-A
 
-D
-Balkhaake chali kahan
-G
-Thoda woh ghabraayi
-Bm
-Thoda sa sharmaayi
-A
+    A         D            E          A
+Piyu bole, piya bole, kya yeh bole, jaanu na.
+    A          E              D          A
+Jiya dole, haule haule, kyon yeh dole, jaanu na.
 
-G
-Uchhli yahaan se wahaan
-D
-Saagar se milne ka
-Bm
-Uska tha sapna
-A
-Meri hi tarah piya
+Bit..... 
 
-[Ending]
-G D
-Piyu bole piya bole
-Bm A
-Jiya dole hole hole
-D
-You are mine
+
+A   D    A    D       D      D        A
+Ek nadi se maine puchha, "Itla ke chal di kahaan?
+
+D   E   D    E         D       E        A
+Door tere pe-ka ghar hai - balkhake chal di kahaan?
+
+A        E         A       E
+Thoda woh ghabraayi, thoda sa sharmaayi,
+
+A      E        A
+Ujhli yahaan se wahaan.
+
+A        E        A       E
+Saagar se milne ka, uska, to sapna tha,
+A      E    A
+Meri hi tarah piya.
+
+
+    A          E              D          A
+Jiya dole, haule haule, kyon yeh dole, jaanu na.
+     A         D            E          A
+Piyu bole, piya bole, kya yeh bole, jaanu na.
+
+
+        E            A
+Hmm hmm hmm...You are mine.
+        E          A
+Hmm hmm hmm...La la la...
+        E                A
+Hey hey hey...Say you are mine...
+
