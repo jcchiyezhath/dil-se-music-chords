@@ -1,5 +1,10 @@
 [
   {
+    "name": "Lag Ja Gale",
+    "file": "songs/lag-ja-gale.txt",
+    "section": "Melody"
+  },
+  {
     "name": "Kilukil Parabaram Aleena",
     "file": "songs/02-kilukil-parabaram-aleena.txt",
     "section": "Melody"
@@ -87,11 +92,6 @@
   {
     "name": "Swami Natha Kannodu Mix",
     "file": "songs/swami-natha-kannodu-mix.txt",
-    "section": "Melody"
-  },
-  {
-    "name": "Lag Ja Gale",
-    "file": "songs/lag-ja-gale.txt",
     "section": "Melody"
   }
 ]
