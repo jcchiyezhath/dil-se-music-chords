@@ -93,5 +93,10 @@
     "name": "Swami Natha Kannodu Mix",
     "file": "songs/swami-natha-kannodu-mix.txt",
     "section": "Melody"
+  },
+  {
+    "name": "New Song 20",
+    "file": "songs/new-song-20.txt",
+    "section": "Melody"
   }
 ]
