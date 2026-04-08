@@ -1,78 +1,97 @@
 [
   {
     "name": "Netru Illatha Mamatha",
-    "file": "songs/01-netru-illatha-Mamatha.txt"
+    "file": "songs/01-netru-illatha-Mamatha.txt",
+    "section": "Melody"
   },
   {
     "name": "Kilukil Parabaram Aleena",
-    "file": "songs/02-kilukil-parabaram-aleena.txt"
+    "file": "songs/02-kilukil-parabaram-aleena.txt",
+    "section": "Melody"
   },
   {
     "name": "3 01 Vaachalam",
-    "file": "songs/3 01 vaachalam.txt"
+    "file": "songs/3 01 vaachalam.txt",
+    "section": "Melody"
   },
   {
     "name": "3 02 Chura Liya Hai",
-    "file": "songs/3 02 Chura Liya Hai.txt"
+    "file": "songs/3 02 Chura Liya Hai.txt",
+    "section": "Melody"
   },
   {
     "name": "3 03 Roop Tera",
-    "file": "songs/3 03 roop-tera.txt"
+    "file": "songs/3 03 roop-tera.txt",
+    "section": "Melody"
   },
   {
     "name": "3 04 Mere Khwabon Mein",
-    "file": "songs/3 04 Mere- Khwabon-Mein.txt"
+    "file": "songs/3 04 Mere- Khwabon-Mein.txt",
+    "section": "Melody"
   },
   {
     "name": "3 05 Mele Poomala Thaazhe",
-    "file": "songs/3 05 Mele-Poomala-Thaazhe.txt"
+    "file": "songs/3 05 Mele-Poomala-Thaazhe.txt",
+    "section": "Melody"
   },
   {
     "name": "3 06 Papa Kehte Hain",
-    "file": "songs/3 06 Papa- Kehte- Hain.txt"
+    "file": "songs/3 06 Papa- Kehte- Hain.txt",
+    "section": "Melody"
   },
   {
     "name": "3 07 Hawa Hawai",
-    "file": "songs/3 07 Hawa Hawai.txt"
+    "file": "songs/3 07 Hawa Hawai.txt",
+    "section": "Melody"
   },
   {
     "name": "3 07 Ye Dosti Hum Nahi",
-    "file": "songs/3 07 Ye-Dosti-Hum-Nahi.txt"
+    "file": "songs/3 07 Ye-Dosti-Hum-Nahi.txt",
+    "section": "Melody"
   },
   {
     "name": "3 08 Hawa Hawa",
-    "file": "songs/3 08 Hawa- Hawa.txt"
+    "file": "songs/3 08 Hawa- Hawa.txt",
+    "section": "Melody"
   },
   {
     "name": "Abhi Na Jaoo Antony",
-    "file": "songs/03-abhi-na-jaoo-antony.txt"
+    "file": "songs/03-abhi-na-jaoo-antony.txt",
+    "section": "Melody"
   },
   {
     "name": "Piyu Bole Rona",
-    "file": "songs/04-piyu-bole-rona.txt"
+    "file": "songs/04-piyu-bole-rona.txt",
+    "section": "Melody"
   },
   {
     "name": "Nilaavae Vaa Midhuna",
-    "file": "songs/06-nilaavae-vaa-midhuna.txt"
+    "file": "songs/06-nilaavae-vaa-midhuna.txt",
+    "section": "Melody"
   },
   {
     "name": "Mozhikalum Mounangalum Kuriachen",
-    "file": "songs/07-mozhikalum-mounangalum-Kuriachen.txt"
+    "file": "songs/07-mozhikalum-mounangalum-Kuriachen.txt",
+    "section": "Melody"
   },
   {
     "name": "Alai Payuthey",
-    "file": "songs/08-alai-payuthey.txt"
+    "file": "songs/08-alai-payuthey.txt",
+    "section": "Melody"
   },
   {
     "name": "Maha Ganapathim",
-    "file": "songs/maha ganapathim.txt"
+    "file": "songs/maha ganapathim.txt",
+    "section": "Melody"
   },
   {
     "name": "Rara Venu Gopa",
-    "file": "songs/rara-venu-gopa.txt"
+    "file": "songs/rara-venu-gopa.txt",
+    "section": "Melody"
   },
   {
     "name": "Swami Natha Kannodu Mix",
-    "file": "songs/swami-natha-kannodu-mix.txt"
+    "file": "songs/swami-natha-kannodu-mix.txt",
+    "section": "Melody"
   }
 ]
