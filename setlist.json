@@ -12,7 +12,7 @@
   {
     "name": "3 01 Vaachalam",
     "file": "songs/3 01 vaachalam.txt",
-    "section": "Melody"
+    "section": "Semi-Fast"
   },
   {
     "name": "3 02 Chura Liya Hai",
@@ -57,11 +57,6 @@
   {
     "name": "Piyu Bole Rona",
     "file": "songs/04-piyu-bole-rona.txt",
-    "section": "Melody"
-  },
-  {
-    "name": "Nilaavae Vaa Midhuna",
-    "file": "songs/06-nilaavae-vaa-midhuna.txt",
     "section": "Melody"
   },
   {
