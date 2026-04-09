@@ -64,5 +64,11 @@
     "order": 11,
     "name": "Hawa Hawai",
     "file": "songs/3 07 Hawa Hawai.txt"
+  },
+  {
+    "section": "Section 4",
+    "order": 12,
+    "name": "New Song 12",
+    "file": "songs/new-song-12.txt"
   }
 ]
