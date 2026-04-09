@@ -70,5 +70,11 @@
     "order": 12,
     "name": "Ek Do Teen",
     "file": "songs/new-song-12.txt"
+  },
+  {
+    "section": "Section 4",
+    "order": 13,
+    "name": "Laila Main Laila",
+    "file": "songs/new-song-13.txt"
   }
 ]
