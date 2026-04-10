@@ -76,5 +76,11 @@
     "order": 13,
     "name": "Laila Main Laila",
     "file": "songs/new-song-13.txt"
+  },
+  {
+    "section": "Section 1",
+    "order": 14,
+    "name": "New Song 14",
+    "file": "songs/new-song-14.txt"
   }
 ]
