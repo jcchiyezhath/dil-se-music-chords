@@ -1,65 +1,73 @@
-Title: Piya Bole
-Key: E major
+PIYU BOLE
+Key: D Major (E Major)
+Capo: 2
 
+Singer: Rona
 
-
-E           A
+[Intro]
+D        G
+Hmm hmm...Hmm hmm...
+      D           G
 La la la...Hey hey hey...
-        E            A
+        D            G
 Hmm hmm hmm...You are mine.
-        E          A
+        D          G
 Hmm hmm hmm...La la la...
-        E                A
+        D                G
 Hey hey hey...Say you are mine...
-
-
-A        E            A         E
+     D         G
+Piyu bole, piya bole...
+        D              G
+Hmm hmm hmm hmm...Jaanu na.
+     D          G
+Jiya dole, haule haule,
+         D          G
+Kyon yeh dole, jaanu na.
+ 
+ 
+[Verse 1]
+G        D            G         D
 Dil ki jo baatein hain, baatein jo dil ki hain,
-
-A          E       A
+G          D       G
 Dil hi mein rakhna piya.
-A        E            A         E
+G        D            G         D
 Lab to na kholoon main, kholoon na lab to par,
-A        E      A
+G        D      G
 Aakhon se sab keh diya.
-
-
-    A         D            E          A
+ 
+ 
+[Chorus 1]
+     G         C            D          G
 Piyu bole, piya bole, kya yeh bole, jaanu na.
-    A          E              D          A
+     G          D              C          G
 Jiya dole, haule haule, kyon yeh dole, jaanu na.
-
-Bit..... 
-
-
-A   D    A    D       D      D        A
+     G         C            D          G
+Piyu bole, piya bole, kya yeh bole, jaanu na.
+     G          D              C          G
+Jiya dole, haule haule, kyon yeh dole, jaanu na.
+ 
+ 
+[Verse 2]
+G   C    G    C       C      C        G
 Ek nadi se maine puchha, "Itla ke chal di kahaan?
-
-D   E   D    E         D       E        A
-Door tere pe-ka ghar hai - balkhake chal di kahaan?
-
-A        E         A       E
+C   D   C    D         C       D        G
+Door tere pe-ka ghar hai - balkhake chal di kahaan?"
+G        D         G       D
 Thoda woh ghabraayi, thoda sa sharmaayi,
-
-A      E        A
+G      D        G
 Ujhli yahaan se wahaan.
-
-A        E        A       E
+G        D        G       D
 Saagar se milne ka, uska, to sapna tha,
-A      E    A
+G      D    G
 Meri hi tarah piya.
-
-
-    A          E              D          A
+ 
+ 
+[Chorus 2]
+     G         C            D          G
+(................unvoiced..................)
+     G          D              C          G
 Jiya dole, haule haule, kyon yeh dole, jaanu na.
-     A         D            E          A
+     G         C            D          G
 Piyu bole, piya bole, kya yeh bole, jaanu na.
-
-
-        E            A
-Hmm hmm hmm...You are mine.
-        E          A
-Hmm hmm hmm...La la la...
-        E                A
-Hey hey hey...Say you are mine...
-
+     G          D              C          G
+Jiya dole, haule haule, kyon yeh dole, jaanu na.
