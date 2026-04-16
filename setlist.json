@@ -69,18 +69,36 @@
     "section": "Section 4",
     "order": 12,
     "name": "Ek Do Teen",
-    "file": "songs/new-song-12.txt"
+    "file": "songs/Ek-do-teen.txt"
   },
   {
     "section": "Section 4",
     "order": 13,
     "name": "Laila Main Laila",
-    "file": "songs/new-song-13.txt"
+    "file": "songs/Laila-main-laila.txt"
   },
   {
-    "section": "Section 1",
+    "section": "Section 4",
     "order": 14,
-    "name": "New Song 14",
-    "file": "songs/new-song-14.txt"
+    "name": "Mere Piya Ghar Aaya",
+    "file": "songs/mere-piya-ghar-aaya.txt"
+  },
+  {
+    "section": "Section 4",
+    "order": 15,
+    "name": "Koi Kahe Kehatha",
+    "file": "songs/Koi-kahe-Kehatha15.txt"
+  },
+  {
+    "section": "Section 4",
+    "order": 16,
+    "name": "Oru Madhura Kinavin",
+    "file": "songs/Oru-Madhura-Kinavin.txt"
+  },
+  {
+    "section": "Section 4",
+    "order": 17,
+    "name": "Kuttanadan kaayalile",
+    "file": "songs/Kuttandan-kaayalile.txt"
   }
 ]
