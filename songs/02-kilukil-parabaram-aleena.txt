@@ -1,61 +1,63 @@
+KILLUKIL PAMBARAM
+Key: D Major (E Major)
+Capo: 2
 Singer: Aleena
-Key: B Major
-Feel: Soft lullaby / 6-8 flow works beautifully
 
-Suggested simple progression in B Major:
-B – E – F# – G#m (very smooth and easy for band)
+
+Suggested simple progression in A Major:
+A – D – E – F#m (very smooth and easy for band)
 
 [Intro]
-B E B F#
+A D A E
 
 [Verse 1]
-B
+A
 Meeda manjum moodiyee
-E
+D
 Kunnum poygayum
-F#
+E
 Paalnilavin shayayil
-B
+A
 Mayangum veelayil
 
-B
+A
 Thaalam pooya ninnil
-E
+D
 Meeyum noovumay
-F#
+E
 Thaane veenuranguu
-B
+A
 Thennal kanyake
 
-G#m
+F#m
 Thaaragangal thunnumi
-E
+D
 Raavin meenavil
-F#
+E
 (hold)
-B
+A
 
 [Humming Section]
-B
+A
 Mmmm… chamchakkam
-E
+D
 Mmmm… chamchakkam
 
 [Verse 2]
-B
+A
 Panineer chandrighee
-E
+D
 Iniyee poonkavil
-F#
+E
 Kuliril melle nee
-B
+A
 Thazhugu vavavooo
 
 [Humming Outro]
-B
+A
 Mmmm mmmm mmm chamchakkam
-E
+D
 Mmmm mmmm mmm
-F#
+E
 Chamchakkam
-B
+A
