@@ -1,45 +1,31 @@
-Title: Lag Ja Gale
+LAG JA GALE
+Key: D Major (E Major)
+Capo: 2
+Singer: Midhuana
 
-Key: E major
-
-Small Into..... 
-
-A      E  
-Humming..... 
-
-A                B                 A    E
-Shaayad Phir Is Janam Men Mulaaqaat Ho Na Ho
-
-E        G#    C#m            E       B
-Lag Ja Gale Ki Phir Ye Hasin Raat Ho Na Ho
-
-A                B                 A    E
-Shaayad Phir Is Janam Men Mulaaqaat Ho Na Ho
-
-E
-Lag Ja Gale Se Se..... 
-
-Bit..... Chords
-A B E
-A B E
-
-E                 A               B    E
-Ham Ko Mili Hain Aaj, Ye Ghadiyaan Nasib Se
-
-E              A              B   E
-Ji Bhar Ke Dekh Lijiye Ham Ko Qarib Se
-
-E                        C#m        B
-Phir Aap Ke Nasib Men Ye Baat Ho Na Ho
-
-A                B                 A    E
-Shaayad Phir Is Janam Men Mulaaqaat Ho Na Ho
-
-E                                    B
-Lag Ja Gale Ki Phir Ye Hasin Raat Ho Na Ho
-
-A                B                 A    E
-Shaayad Phir Is Janam Men Mulaaqaat Ho Na Ho
-
-E
-Lag Ja Gale Se Se... 
+D               Bm            D    Bm    A
+lag ja gale,ke fir yeh haseen raat ho na ho
+G               A             D   Em    D
+shayad fir is janam main, mulakat ho na ho
+D
+lag ja gale,fir...............
+ 
+D              G               Em        D
+humko mili hain aaj yeh, ghadiyan naseeb se
+D              G          Em         D
+ji bhar ke dekh lijiye, humko kareeb se
+D              Bm          D    Bm    A
+fir aapke naseeb main, yeh baat ho na ho
+G               A             D   Em    D
+shayad fir is janam main, mulakat ho na ho
+D
+lag ja gale,fir............... 
+ 
+D             G           Em         D
+Paas aaiye ke hum nahin Aayenge baar baar
+D                G         Em              D
+Baahein gale mein daal ke Hum ro lein zaar zaar
+D               Bm              D    Bm    A
+Aankhon se phir yeh pyaar ki Barsaat ho na ho
+G               A             D     Em    D
+Shaayad phir is janam mein Mulaqaat ho na ho
