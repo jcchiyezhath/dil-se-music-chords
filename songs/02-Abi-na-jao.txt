@@ -1,55 +1,47 @@
-Title: Abi na Jao
+ABI NA JAO
+Key: D Major (E Major)
+Capo: 2
+Singer: Antony
 
-Key: E major
 
-Small Intro..... 
-
-E            B
+[Chorus]
+D            A
 abhi na jaao chhod kar
-B           E
+A           D
 ke dil abhi bhara nahin
-
-E            B
+ 
+D            A
 abhi na jaao chhod kar
-B           E
+   E    A   D
 ke dil abhi bhara nahin
-
-
-E                 B
+ 
+[Verse]
+D                 A
 abhi abhi to aayi ho abhi abhi to
-E
+D
 abhi abhi to aayi ho
-
-
-E
-abhi abhi to aayi ho
-B           E
+A           D
 bahar banke chhayi ho
-E         B
+D         A
 hawa zara mahak to le
-E          B
+D          A
 nazar zara bahak to le
 
-A
+G
 ye shaam dhal to le zara
-A
+G
 ye shaam dhal to le zara
-A
+G
 ye dil sambhal to le zara
 
-
-E       B   E
+    D       A   D
 main thodi der jee to lun
-B              E
-nashe ke ghunt pi to lun
-B
-nashe ke ghunt pi to lun
-B             E
-abhi to kuchh kaha nahin
-B             E
-abhi to kuchh suna nahin
 
-E            B
-abhi na jaao chhod kar
-   F#   B   E
-ke dil abhi bhara nahin
+A              D
+nashe ke ghunt pi to lun
+A
+nashe ke ghunt pi to lun
+A             D
+abhi to kuchh kaha nahin
+A             D
+abhi to kuchh suna nahin
